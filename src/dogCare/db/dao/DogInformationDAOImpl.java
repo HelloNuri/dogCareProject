@@ -1,7 +1,5 @@
 package dogCare.db.dao;
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.junit.Assert.assertNull;
-import static org.junit.jupiter.api.Assertions.assertTimeout;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -14,11 +12,8 @@ import java.util.HashMap;
 import java.util.Map;
 
 import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.api.DisplayNameGeneration;
-import org.junit.jupiter.api.MethodOrderer;
 import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.TestMethodOrder;
 
 import dogCare.db.DTO.DogInfoAddDTO;
 import dogCare.db.DTO.SupplyAddDTO;
