@@ -15,9 +15,10 @@ public class DogDAOImpl implements DogDAO{
 	private Connection conn; 
 	
 	public DogDAOImpl() throws ClassNotFoundException, SQLException {
-		Class.forName("oracle.jdbc.OracleDriver");
-		String url = "jdbc:oracle:thin:@localhost:1521:XE";
-		conn = DriverManager.getConnection(url, "hr", "hr");
+//		Class.forName("oracle.jdbc.OracleDriver");
+//		String url = "jdbc:oracle:thin:@localhost:1521:XE";
+//		conn = DriverManager.getConnection(url, "hr", "hr");
+		conn = ConnectionManager.getConnection();
 	}
 	
 	@Override

@@ -22,6 +22,7 @@ public class ConnectionManager {
 		}catch (ClassNotFoundException e) {
 			e.printStackTrace();
 		}
+		
 	}
 	
 	public static Connection getConnection() throws ClassNotFoundException, SQLException {

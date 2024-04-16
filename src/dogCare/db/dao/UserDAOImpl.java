@@ -88,7 +88,6 @@ public class UserDAOImpl implements UserDAO {
 			pstmt.close();
 			rs.close();
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		return result;

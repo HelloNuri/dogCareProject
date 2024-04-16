@@ -1,6 +1,9 @@
 package dogCare.db.dao;
+import static org.assertj.core.api.Assertions.assertThat;
+import static org.junit.Assert.assertNull;
+import static org.junit.jupiter.api.Assertions.assertTimeout;
+
 import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -10,20 +13,30 @@ import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
 
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.DisplayNameGeneration;
+import org.junit.jupiter.api.MethodOrderer;
+import org.junit.jupiter.api.Order;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.TestMethodOrder;
 
 import dogCare.db.DTO.DogInfoAddDTO;
 import dogCare.db.DTO.SupplyAddDTO;
 import dogCare.db.VO.DogInfoVO;
 import dogCare.db.VO.SupplyVO;
 
+
 public class DogInformationDAOImpl implements DogInformationDAO{
 	private Connection conn; 
 	
 	public DogInformationDAOImpl() throws ClassNotFoundException, SQLException {
-		Class.forName("oracle.jdbc.OracleDriver");
-		String url = "jdbc:oracle:thin:@localhost:1521:XE";
-		conn = DriverManager.getConnection(url, "hr", "hr");
+//		Class.forName("oracle.jdbc.OracleDriver");
+//		String url = "jdbc:oracle:thin:@localhost:1521:XE";
+//		conn = DriverManager.getConnection(url, "hr", "hr");
+		conn = ConnectionManager.getConnection();
 	}
+	
+	
 	
 	@Override
 	public int addDogInfo(int dogId, DogInfoAddDTO dogInfo) throws SQLException {
@@ -47,6 +60,41 @@ public class DogInformationDAOImpl implements DogInformationDAO{
 		stmt.close();
 		rs.close();
 		return infoId;
+	}
+	
+	@Test
+	@Order(2)
+	@DisplayName("단일추가 테스트")
+	void addDogInfoTest() throws SQLException {
+		
+		int dogInfoId = addDogInfo(1, null);
+		assertThat(dogInfoId).isNotEqualTo(-1);
+	}
+	
+	public DogInfoVO getDogInfo(int dogInfoId) {
+		String sql = "Select weight, exercise_time, note, upload_time, dog_id from dog_informations where dog_information_id = ?";
+		DogInfoVO result = null;
+		try {
+			PreparedStatement pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, dogInfoId);
+			ResultSet rs = pstmt.executeQuery();
+			while(rs.next()){
+				result = new DogInfoVO(dogInfoId, rs.getDouble(1), rs.getDouble(2), rs.getString(3), rs.getTimestamp(4), rs.getInt(5));
+			}
+			pstmt.close();
+			rs.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+		return result;
+	}
+	
+	@Test
+	@Order(3)
+	@DisplayName("단일쿼리 테스트")
+	void getDogInfoTest() {
+		
 	}
 
 	@Override

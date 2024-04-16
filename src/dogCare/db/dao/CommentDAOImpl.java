@@ -16,9 +16,10 @@ public class CommentDAOImpl implements CommentDAO {
 	private Connection conn; 
 	
 	public CommentDAOImpl() throws ClassNotFoundException, SQLException {
-		Class.forName("oracle.jdbc.OracleDriver");
-		String url = "jdbc:oracle:thin:@localhost:1521:XE";
-		conn = DriverManager.getConnection(url, "hr", "hr");
+//		Class.forName("oracle.jdbc.OracleDriver");
+//		String url = "jdbc:oracle:thin:@localhost:1521:XE";
+//		conn = DriverManager.getConnection(url, "hr", "hr");
+		conn = ConnectionManager.getConnection();
 	}
 	
 	@Override

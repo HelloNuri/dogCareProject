@@ -22,9 +22,10 @@ public class AlbumDAOImpl implements AlbumDAO {
 	private Connection conn; 
 	
 	public AlbumDAOImpl() throws ClassNotFoundException, SQLException {
-		Class.forName("oracle.jdbc.OracleDriver");
-		String url = "jdbc:oracle:thin:@localhost:1521:XE";
-		conn = DriverManager.getConnection(url, "hr", "hr");
+//		Class.forName("oracle.jdbc.OracleDriver");
+//		String url = "jdbc:oracle:thin:@localhost:1521:XE";
+//		conn = DriverManager.getConnection(url, "hr", "hr");
+		conn = ConnectionManager.getConnection();
 	}	
 	
 	@Override
