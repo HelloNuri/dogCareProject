@@ -12,8 +12,9 @@
 	#thumbnails{
 		display: grid;
 		grid-template-columns: 1fr 1fr;
-		grid-template-rows: 0.8fr 0.2fr 0.8fr 0.2fr;
-		grid-column-gap: 20px;
+		grid-template-rows: 0.8fr 0.2fr 0.8fr 0.2fr 0.3fr;
+		grid-column-gap: 2em;
+		grid-column:9/10;
 	}
 	
 	.container {
@@ -50,8 +51,20 @@
 		grid-area:4/2/5/3;
 	}
 	
- 
- 
+	
+	.btn-group1 {
+		grid-area:5/1/6/3;
+		display:flex;
+		justify-content:center;
+	}
+	s
+	
+	.btn btn-success {
+		grid-area:5/1/6/3;
+		dispaly:flex;
+		justify-content:flex-start;
+	}
+	
  </style>  
 </head>
 <body>
@@ -107,6 +120,17 @@
 	</div>
 </div>
 
+
+
+  <div class="btn-group1">
+    <button type="button" class="btn btn-primary">1</button>
+    <button type="button" class="btn btn-primary">2</button>
+    <button type="button" class="btn btn-primary">3</button>
+    <button type="button" class="btn btn-primary">4</button>
+    <button type="button" class="btn btn-primary">5</button>
+  </div>
+
+  <button type="button" class="btn btn-success">글쓰기</button> 
 
 
 </body>
