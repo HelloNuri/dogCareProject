@@ -15,9 +15,49 @@
       grid-template-columns: repeat(auto-fill, minmax(33%, auto));
       /* grid-template-areas: "back title n"; */
     }
-    #title{
+
+    #title {
       display: flex;
       justify-content: center;
+    }
+
+    #register-container {
+      padding: 1rem;
+      display: flex;
+      justify-content: center;
+      margin-top: 1rem;
+    }
+
+    .form-control {
+      display: inline-block;
+    }
+
+    form {
+      display: grid;
+      grid-template-columns: 35% 65%;
+      grid-row-gap: 1rem;
+      grid-column-gap: 0.2rem;
+      justify-items: left;
+      align-items: center;
+    }
+    #submit{
+      grid-column: span 2;
+    }
+    #validation{
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      grid-gap: 0.5rem;
+      align-items: center;
+
+      > input{
+        width: 5rem;
+
+      }
+      > button{
+        width: 3.7rem;
+        height: 2rem;
+        align-items: center;
+      }
     }
   </style>
 </head>
@@ -33,18 +73,34 @@
             d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8" />
         </svg>
       </a>
-      <div id="title"><span class="navbar-brand">로그인</span></div>
+      <div id="title"><span class="navbar-brand">회원가입</span></div>
       <div></div>
     </div>
   </nav>
 
-  <div class="container-fluid mt-3">
-    <h3>Collapsible Navbar</h3>
-    <p>In this example, the navigation bar is hidden on small screens and replaced by a button in the top right corner
-      (try to re-size this window).</p>
-    <p>Only when the button is clicked, the navigation bar will be displayed.</p>
-    <p>Tip: You can also remove the .navbar-expand-md class to ALWAYS hide navbar links and display the toggler button.
-    </p>
+  <div id="register-container">
+    <form action="#">
+      <label for="name">이름: </label>
+      <input type="text" class="form-control" placeholder="" name="name">
+      <label for="name">아이디: </label>
+      <input type="text" class="form-control" placeholder="" name="uid">
+      <label for="name">비밀번호: </label>
+      <input type="text" class="form-control" placeholder="" name="pwd">
+      <label for="name">비밀번호 확인: </label>
+      <input type="text" class="form-control" placeholder="" name="pwdConfirm">
+      <label for="name">닉네임: </label>
+      <input type="text" class="form-control" placeholder="" name="nickname">
+      <label for="name">이메일: </label>
+      <input type="text" class="form-control" placeholder="" name="email">
+      <label for="name">인증번호: </label>
+      
+      <div id="validation">
+        <input id="valid" type="text" class="form-control" placeholder="" name="valid">
+        <button class="btn btn-primary">발송</button>
+      </div>
+
+      <button id="submit" type="submit" class="btn btn-primary container-fluid">회원가입</button>
+    </form>
   </div>
 
 </body>
