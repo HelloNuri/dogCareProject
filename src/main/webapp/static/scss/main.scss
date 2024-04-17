@@ -1,4 +1,35 @@
 $primary: #92d050;
+.dogCare-logo {
+    content: '';
+    width: 100%;
+    background-image: url('../img/logo.svg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 35rem;
 
+    position: relative;
+    isolation: isolate;
+}
+
+.logoImage {
+    content: '';
+    width: 100%;
+    background-image: url('../img/logo.svg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 35rem;
+
+    position: relative;
+    isolation: isolate;
+}
+
+.logoImage::after {
+    content: '';
+    position: absolute;
+    background: white;
+    z-index: -1;
+    inset: 0;
+    opacity: 0.4;
+}
 
 @import "../../../../../../../bootstrap/scss/bootstrap.scss";
