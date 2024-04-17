@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <link rel="stylesheet" href="./static/css/main.css">
+  <link rel="stylesheet" href="./static/css/dog_info.css">
+
+  <style>
+    #body {
+      padding: 1rem;
+      height: min(90vh);
+
+      #main-container {
+        background-color: white;
+        height: 100%;
+        display: grid;
+        grid-template-rows: auto 1fr;
+
+
+        #select-container {
+          display: flex;
+          justify-content: space-between;
+          margin: 0.2rem;
+
+          input {
+            width: fit-content;
+          }
+        }
+
+        #dogInfo-container {
+          border-left: 1px solid black;
+          border-top: 1px solid black;
+          display: grid;
+          grid-template-columns: 5rem 1fr;
+          grid-template-rows: min-content min-content auto;
+          grid-auto-rows: min-content;
+          padding: 0;
+        }
+      }
+    }
+
+    .logoImage {
+      content: '';
+      width: 100%;
+      background-image: url('./static/img/logo.svg');
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: 150%;
+    }
+
+    .grid-row {
+      display: contents;
+
+      .label {
+        word-break: keep-all;
+        display: flex;
+        text-align: center;
+      }
+
+      >div {
+        border-bottom: 1px solid black;
+        border-right: 1px solid black;
+        display: flex;
+        align-items: center;
+        justify-content: left;
+
+      }
+
+      >.items {
+        display: grid;
+        grid-template-columns: auto auto;
+        grid-template-rows: auto;
+        column-gap: 0.3rem;
+        row-gap: 0.3rem;
+        padding-left: 0.5rem;
+        padding-top: 1rem;
+        padding-bottom: 1rem;
+        padding-right: 1rem;
+
+
+        .item {
+          display: contents;
+
+          div {
+            word-break: keep-all;
+          }
+        }
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <nav class="navbar navbar-expand-sm bg-primary navbar-primary">
+
+    <div class="container-fluid">
+      <a id="backPage" class="navbar-brand" href="#"><svg xmlns="http://www.w3.org/2000/svg" width="28" height="28"
+          fill="currentColor" class="bi bi-arrow-left" viewBox="0 0 16 16">
+          <path fill-rule="evenodd"
+            d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8" />
+        </svg>
+      </a>
+      <div id="title"><span class="navbar-brand">강아지 건강정보 입력</span></div>
+      <div></div>
+    </div>
+  </nav>
+
+  <div id="body" class="container">
+    <div id="main-container">
+      <div id="select-container">
+        <div class="dropdown">
+          <button type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown">
+            강아지 선택
+          </button>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="#">골댕이</a></li>
+            <li><a class="dropdown-item" href="#">은댕이</a></li>
+            <li><a class="dropdown-item" href="#">동댕이</a></li>
+            <li>
+              <hr class="dropdown-divider">
+            </li>
+            <li><a class="dropdown-item" href="#" style="display: flex; justify-content: center; color: green;"><svg
+                  xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor"
+                  class="bi bi-plus-circle-fill" viewBox="0 0 16 16">
+                  <path
+                    d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0M8.5 4.5a.5.5 0 0 0-1 0v3h-3a.5.5 0 0 0 0 1h3v3a.5.5 0 0 0 1 0v-3h3a.5.5 0 0 0 0-1h-3z" />
+                </svg></a></li>
+          </ul>
+        </div>
+        <input type="date" name="datetime-local" value="" id="infoDate" class="form-control">
+      </div>
+      <div id="dogInfo-container" class="logoImage">
+        <div class="grid-row">
+          <div class="label">강아지 정보</div>
+          <div class="items">
+            <div class="item">
+              <div>이름: </div>
+              <input type="text" class="form-control" placeholder="골댕이" readonly>
+            </div>
+            <div class="item">
+              <div>품종: </div>
+              <input type="text" class="form-control" placeholder="골든 리트리버" readonly>
+            </div>
+            <div class="item">
+              <div>나이: </div>
+              <input type="text" class="form-control" placeholder="13개월" readonly>
+            </div>
+            <div class="item">
+              <div>성별: </div>
+              <input type="text" class="form-control" placeholder="남" readonly>
+            </div>
+          </div>
+        </div>
+        <div class="grid-row">
+          <div class="label">강아지 건강정보</div>
+          <div class="items">
+            <div class="item">
+              <div>*체중: </div>
+              <input type="text" class="form-control" placeholder="11.3 (kg)">
+            </div>
+            <div class="item">
+              <div>*운동량:</div>
+              <input type="text" class="form-control" placeholder="7 (시간/주)">
+            </div>
+            <div class="item">
+              <div>비고: </div>
+              <input type="text" class="form-control" placeholder="구역질 자꾸 함">
+            </div>
+          </div>
+        </div>
+        <div class="grid-row">
+          <div class="label">강아지 용품 정보</div>
+          <div class="items">
+            <div class="item">
+              <input type="text" class="form-control" value="사료" readonly>
+              <input type="text" class="form-control" placeholder="그린 " readonly>
+            </div>
+            <div class="item">
+              <input type="text" class="form-control" placeholder="사료">
+              <input type="text" class="form-control" placeholder="그린 ">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+</body>
+
+</html>
