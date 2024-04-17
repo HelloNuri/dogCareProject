@@ -103,10 +103,22 @@
   background-position: 95%;
 }
 
-select+div> .input-group-text{
-  color:red;
-  
+select+.input-group{
+   input{
+    border-right: none;
+    padding-right: 0;
+   }
+
+  > .input-group-text{
+    color:red;
+    background-color: white;
+    border-left: none;
+    padding-left: 0.2rem;
+    padding-right: 0.3rem;
+
+  }
 }
+
 
 #supply-btn {
   margin: 1rem 0;
