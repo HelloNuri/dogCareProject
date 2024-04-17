@@ -41,10 +41,10 @@
 
 #find-container {
 
-  height: 60vh;
+  height: 70vh;
   display: grid;
   grid-template-columns: auto;
-  grid-template-rows: min-content auto;
+  grid-template-rows: min-content min-content auto;
   justify-items: left;
   align-items: center;
 
@@ -103,4 +103,9 @@
 
   }
 
+}
+
+#logo{
+  height: 30vw;
+  background-size: 60vw;
 }
