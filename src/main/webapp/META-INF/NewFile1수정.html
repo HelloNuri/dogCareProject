@@ -12,12 +12,16 @@
   
 <style>
 
+	.cheakbox1 {
+		display:flex;
+		align-items:space-around;
+	}
 
 
 	.container {
 		display:grid;
-		grid-template-rows:1fr 2fr;
-		grid-rows:5em;
+		grid-template-rows:1fr 0.04fr 2fr;
+		padding:1em;
 	}
 	
 	.button2 {
@@ -33,7 +37,7 @@
 	
 	.btn-search {
 		display:flex;
-		width:5em;
+		width:35em;
 		heigth:2em;	
 		justify-content:flex-end;
 		align-self:flex-end;
@@ -45,7 +49,7 @@
 
 
 	.container1 {
-		grid-area:2/1/3/2;
+		grid-area:3/1/4/2;
 		display:flex;
 		align-items:flex-start;
 	}
@@ -91,10 +95,10 @@
 <div class = "box">
 
     <div class="btn-group1">
-	  <div class="checkbox">
-      <label><input type="checkbox" value="">
+	  <div class="checkbox1">
+      <label><input type="checkbox" value="">품종
        <form action="/action_page.php">
-    <label for="sel1" class="form-label">품종</label>
+    <label for="sel1" class="form-label"></label>
     <select class="form-select" id="sel1" name="sellist1">
       <option>골든 리트리버</option>
       <option>치와와</option>
@@ -136,7 +140,7 @@
       </div>
 
 <div class = "btn-search">
-  <button type="button" class="btn btn-success" >조회</button> 
+  <button type="button" class="btn btn-primary btn-block">조회</button>
 </div>
 </div>
 
