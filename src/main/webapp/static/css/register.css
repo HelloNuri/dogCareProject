@@ -11,6 +11,7 @@ nav.navbar>div.container-fluid {
 
   #register-container {
     padding: 1rem;
+    padding-top: 10rem;
     display: flex;
     justify-content: center;
     margin-top: 1rem;
