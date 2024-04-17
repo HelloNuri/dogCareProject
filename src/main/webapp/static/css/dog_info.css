@@ -6,13 +6,15 @@
       background-color: white;
       height: 100%;
       display: grid;
-      grid-template-rows: auto 1fr;
+      grid-template-rows: auto 1fr 2rem;
+      grid-row-gap: 0.2rem;
 
 
       #select-container {
         display: flex;
         justify-content: space-between;
-        margin: 0.2rem;
+        margin-left: 0.2rem;
+        margin-right: 0.2rem;
 
         input {
           width: fit-content;
