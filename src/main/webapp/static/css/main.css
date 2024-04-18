@@ -5,7 +5,8 @@
   background-image: url("../img/logo.svg");
   background-repeat: no-repeat;
   background-position: center;
-  background-size: 35rem;
+  background-size: 70vmax;
+  height: 35vmax;
   position: relative;
   isolation: isolate;
 }
@@ -16,7 +17,7 @@
   background-image: url("../img/logo.svg");
   background-repeat: no-repeat;
   background-position: center;
-  background-size: 35rem;
+  background-size: 80vmax;
   position: relative;
   isolation: isolate;
 }
@@ -27,7 +28,7 @@
   background: white;
   z-index: -1;
   inset: 0;
-  opacity: 0.4;
+  opacity: 0.7;
 }
 
 /*!

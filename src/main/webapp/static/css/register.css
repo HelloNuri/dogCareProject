@@ -57,7 +57,7 @@ nav.navbar>div.container-fluid {
     }
   }
 
-  div.dogCare-logo{
-    height: 30vmin;
-    background-size: 60vmin;
+  .dogCare-logo{
+    height: 40vmin;
+    background-size: 90vmin;
   }
