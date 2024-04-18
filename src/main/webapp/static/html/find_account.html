@@ -9,9 +9,8 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
   <link rel="stylesheet" href="../css/main.css">
   <link rel="stylesheet" href="../css/findAccount.css">
+  <script src="../js/find_account.js"></script>
 
-  <style>
-  </style>
 </head>
 
 <body>
@@ -34,7 +33,7 @@
     <div id="find-container">
       <div id="logo" class="dogCare-logo"></div>
       <div id="changePage">
-        <a href="#" class="button">아이디 찾기</a>
+        <a href="#" class="button selectPage">아이디 찾기</a>
         <a href="#" class="button">패스워드 찾기</a>
       </div>
       <div id="findPage-container" class="conatiner">
@@ -67,6 +66,14 @@
       </div>
     </div>
   </div>
+
+  <script>
+    let idSelectPageBtn = document.querySelector("#changePage>a:first-child");
+    let pwdSelectPageBtn = document.querySelector("#changePage>a:last-child");
+
+    idSelectPageBtn.addEventListener("click", selectPage);
+    pwdSelectPageBtn.addEventListener("click", selectPage);
+  </script>
 </body>
 
 </html>
