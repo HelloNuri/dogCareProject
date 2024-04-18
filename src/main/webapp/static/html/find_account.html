@@ -40,27 +40,27 @@
         <div id="findIdPage">
           <form action="#" class="container-fluid">
             <div><label for="id-email">이메일: </label>
-              <input type="text" id="id-email" class="form-control" placeholder="" name="email">
+              <input type="email" id="id-email" class="form-control" placeholder="" name="email" required>
             </div>
     
-            <button class="btn btn-primary">찾기</button>
+            <button type="submit" class="btn btn-primary">찾기</button>
     
-            <div id="idShow">hellonuri@gmail.com님의 아이디는<br>userID입니다!</div>
+            <div id="idShow"></div>
           </form>
         </div>
     
         <div id="findPwdPage">
           <form action="#">
               <label for="pwd-id">아이디: </label>
-              <input type="text" id="pwd-id" class="form-control" placeholder="" name="uid">
+              <input type="text" id="pwd-id" class="form-control" placeholder="" name="uid" required>
               <label for="pwd-name">이름: </label>
-              <input type="text" id="pwd-name" class="form-control" placeholder="" name="name">
+              <input type="text" id="pwd-name" class="form-control" placeholder="" name="name" required>
               <label for="pwd-email">이메일: </label>
-              <input type="text" id="pwd-email" class="form-control" placeholder="" name="email">
+              <input type="email" id="pwd-email" class="form-control" placeholder="" name="email" required>
     
-            <button class="btn btn-primary container">찾기</button>
+            <button type="submit" class="btn btn-primary container">찾기</button>
     
-            <div id="resetShow">등록된 이메일로 초기화 메일을 전송하였습니다.</div>
+            <div id="resetShow"></div>
           </form>
         </div>
       </div>
@@ -70,9 +70,15 @@
   <script>
     let idSelectPageBtn = document.querySelector("#changePage>a:first-child");
     let pwdSelectPageBtn = document.querySelector("#changePage>a:last-child");
-
+    
     idSelectPageBtn.addEventListener("click", selectPage);
     pwdSelectPageBtn.addEventListener("click", selectPage);
+    
+    let idFindForm = document.querySelector("#findIdPage form");
+    let pwdFindForm = document.querySelector("#findPwdPage form");
+
+    idFindForm.addEventListener("submit", findId);
+    pwdFindForm.addEventListener("submit", findPwd);
   </script>
 </body>
 
