@@ -8,7 +8,3 @@ function updateSubmitDisabled(e) {
         submitBtn.disabled = true;
     }
 }
-
-function encryptPassword(pwd) {
-    return pwd
-}
