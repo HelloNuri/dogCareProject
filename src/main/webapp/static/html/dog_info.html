@@ -10,13 +10,16 @@
   <link rel="stylesheet" href="../css/main.css">
   <link rel="stylesheet" href="../css/dog_info.css">
 
+  <script src="../js/dog_info.js">
+
+  </script>
 </head>
 
 <body>
   <nav class="navbar navbar-expand-sm bg-primary navbar-primary">
 
     <div class="container-fluid">
-      <a id="backPage" class="navbar-brand" href="#"><svg xmlns="http://www.w3.org/2000/svg" width="28" height="28"
+      <a id="backPage" class="navbar-brand" href="./main_menu.html"><svg xmlns="http://www.w3.org/2000/svg" width="28" height="28"
           fill="currentColor" class="bi bi-arrow-left" viewBox="0 0 16 16">
           <path fill-rule="evenodd"
             d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8" />
@@ -35,7 +38,7 @@
             강아지 선택
           </button>
           <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="#">골댕이</a></li>
+            <li><a class="dropdown-item" href="#" dogId="1">골댕이</a></li>
             <li><a class="dropdown-item" href="#">은댕이</a></li>
             <li><a class="dropdown-item" href="#">동댕이</a></li>
             <li>
@@ -57,19 +60,19 @@
           <div class="items">
             <div class="item">
               <div>이름: </div>
-              <input type="text" class="form-control" placeholder="골댕이" readonly>
+              <input type="text" class="form-control" placeholder="골댕이" disabled>
             </div>
             <div class="item">
               <div>품종: </div>
-              <input type="text" class="form-control" placeholder="골든 리트리버" readonly>
+              <input type="text" class="form-control" placeholder="골든 리트리버" disabled>
             </div>
             <div class="item">
               <div>나이: </div>
-              <input type="text" class="form-control" placeholder="13개월" readonly>
+              <input type="text" class="form-control" placeholder="13개월" disabled>
             </div>
             <div class="item">
               <div>성별: </div>
-              <input type="text" class="form-control" placeholder="남" readonly>
+              <input type="text" class="form-control" placeholder="남" disabled>
             </div>
           </div>
         </div>
@@ -96,17 +99,29 @@
             <div class="item">
               <select class="form-select">
                 <option>종류</option>
-                <option>사료</option>
-                <option>치약</option>
-                <option>목줄</option>
-                <option>장난감</option>
+                <option value="사료">사료</option>
+                <option value="치약">치약</option>
+                <option value="목줄">목줄</option>
+                <option value="장난감">장난감</option>
               </select>
               <div class="input-group"><input type="text" class="form-control" placeholder=" "><span class="input-group-text"><svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-dash-square-fill" viewBox="0 0 16 16">
                 <path d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2zm2.5 7.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1 0-1"/>
               </svg></span></div>
 
             </div>
+            <div class="item">
+              <select class="form-select">
+                <option>종류</option>
+                <option value="사료">사료</option>
+                <option value="치약">치약</option>
+                <option value="목줄">목줄</option>
+                <option value="장난감">장난감</option>
+              </select>
+              <div class="input-group"><input type="text" class="form-control" placeholder=" "><span class="input-group-text"><svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-dash-square-fill" viewBox="0 0 16 16">
+                <path d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2zm2.5 7.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1 0-1"/>
+              </svg></span></div>
 
+            </div>
             <button id="supply-btn" class="btn btn-primary"><svg xmlns="http://www.w3.org/2000/svg"
               fill="currentColor" class="bi bi-plus-circle-fill" viewBox="0 0 16 16">
               <path
@@ -128,6 +143,13 @@
 
   </div>
 
+  <script>
+    const supplies = document.querySelectorAll('div.items:last-of-type')[2].querySelectorAll(".item");
+
+    for (const supply of supplies) {
+        supply.querySelector(".input-group-text");
+    }
+  </script>
 </body>
 
 </html>
