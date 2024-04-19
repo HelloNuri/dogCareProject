@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+<style> 
+	.list-group{
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		grid-template-rows: 1fr 1fr;
+
+	}
+	
+	.list-group {
+		grid-area:1/1/2/2;
+	}
+	
+	.list-group1 {
+		grid-area:1/2/2/3;
+	}
+	
+	.list-group2 {
+		grid-area:2/1/3/2;
+	}
+	
+	.list-group3 {
+		grid-area:2/2/3/3;
+	}
+
+ 
+ 
+ </style>   
+</head>
+<body>
+
+<div class="container">
+  <h2>Basic List Group</h2>
+  <ul class="list-group">
+    <li class="list-group">First item</li>
+    <li class="list-group1">Second item</li>
+    <li class="list-group2">Third item</li>
+    <li class="list-group3">Third item1</li>
+  </ul>
+</div>
+
+</body>
+
+</html>
