@@ -11,6 +11,7 @@
   <link rel="stylesheet" href="../css/dog_info.css">
   <link rel="stylesheet" href="../css/dog_register.css">
 
+  <script src="../js/dog_info.js"></script>
   <script src="../js/dog_register.js"></script>
 </head>
 
@@ -106,7 +107,7 @@
                     </svg></span></div>
 
               </div>
-              <button id="supply-btn" class="btn btn-primary"><svg xmlns="http://www.w3.org/2000/svg"
+              <button type="button" id="supply-btn" class="btn btn-primary"><svg xmlns="http://www.w3.org/2000/svg"
                   fill="currentColor" class="bi bi-plus-circle-fill" viewBox="0 0 16 16">
                   <path
                     d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0M8.5 4.5a.5.5 0 0 0-1 0v3h-3a.5.5 0 0 0 0 1h3v3a.5.5 0 0 0 1 0v-3h3a.5.5 0 0 0 0-1h-3z" />
@@ -123,7 +124,18 @@
   </div>
 
   <script>
+    const dogRegisterForm = document.querySelector("form");
+    const supplies = document.querySelectorAll('div.items:last-of-type')[2].querySelectorAll(".item");
+    const supplyAddBtn = document.querySelector("#supply-btn");
+    
 
+
+    dogRegisterForm.addEventListener("submit", submitDogInfo);
+    for (const supply of supplies) {
+        supply.querySelector(".input-group-text").addEventListener("click", deleteSupply);
+    }
+
+    supplyAddBtn.addEventListener("click", insertSupply);
   </script>
 </body>
 
