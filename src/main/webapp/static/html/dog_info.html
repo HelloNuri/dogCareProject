@@ -13,6 +13,8 @@
   <script src="../js/dog_info.js">
 
   </script>
+
+  <!-- 항목 삭제버튼의 이미지를 .class로 만들면 리소스를 아낄 수 있지 않을까? -->
 </head>
 
 <body>
@@ -36,16 +38,17 @@
       <div id="select-container">
         <div class="dropdown">
           <button type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown">
+            
             강아지 선택
           </button>
           <ul class="dropdown-menu">
             <li><a class="dropdown-item" href="#" dogId="1">골댕이</a></li>
-            <li><a class="dropdown-item" href="#">은댕이</a></li>
-            <li><a class="dropdown-item" href="#">동댕이</a></li>
+            <li><a class="dropdown-item" href="#" dogId="2">은댕이</a></li>
+            <li><a class="dropdown-item" href="#" dogId="3">동댕이</a></li>
             <li>
               <hr class="dropdown-divider">
             </li>
-            <li><a class="dropdown-item" href="#" style="display: flex; justify-content: center; color: green;"><svg
+            <li><a class="dropdown-item" href="./dog_register.html" style="display: flex; justify-content: center; color: green;"><svg
                   xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor"
                   class="bi bi-plus-circle-fill" viewBox="0 0 16 16">
                   <path
@@ -58,6 +61,7 @@
       <div id="dogInfo-container" class="logoImage">
         <div class="grid-row">
           <div class="label">강아지 정보</div>
+          <input type="hidden" name="dogId" required>
           <div class="items">
             <div class="item">
               <div>이름: </div>
@@ -82,11 +86,11 @@
           <div class="items">
             <div class="item">
               <div>*체중: </div>
-              <input type="text" class="form-control" placeholder="11.3 (kg)" name="dogWeight">
+              <input type="number" class="form-control" placeholder="11.3 (kg)" name="dogWeight" required>
             </div>
             <div class="item">
               <div>*운동량:</div>
-              <input type="text" class="form-control" placeholder="7 (시간/주)" name="dogExerciseTime">
+              <input type="number" class="form-control" placeholder="7 (시간/주)" name="dogExerciseTime" required>
             </div>
             <div class="item">
               <div>비고: </div>
@@ -105,7 +109,7 @@
                 <option value="목줄">목줄</option>
                 <option value="장난감">장난감</option>
               </select>
-              <div class="input-group"><input type="text" class="form-control" placeholder=" "><span class="input-group-text"><svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-dash-square-fill" viewBox="0 0 16 16">
+              <div class="input-group"><input type="text" class="form-control" placeholder=" " required><span class="input-group-text"><svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-dash-square-fill" viewBox="0 0 16 16">
                 <path d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2zm2.5 7.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1 0-1"/>
               </svg></span></div>
 
@@ -118,7 +122,7 @@
                 <option value="목줄">목줄</option>
                 <option value="장난감">장난감</option>
               </select>
-              <div class="input-group"><input type="text" class="form-control" placeholder=" "><span class="input-group-text"><svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-dash-square-fill" viewBox="0 0 16 16">
+              <div class="input-group"><input type="text" class="form-control" placeholder=" " required><span class="input-group-text"><svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-dash-square-fill" viewBox="0 0 16 16">
                 <path d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2zm2.5 7.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1 0-1"/>
               </svg></span></div>
 
@@ -147,9 +151,20 @@
   </div>
 
   <script>
+    fillDogs();
+    const dogInfoForm = document.querySelector("form");
+    const dogSelectBtn = document.querySelector(".dropdown button");
+    const dogs = document.querySelector(".dropdown button").nextElementSibling.querySelectorAll("li");
     const supplies = document.querySelectorAll('div.items:last-of-type')[2].querySelectorAll(".item");
     const supplyAddBtn = document.querySelector("#supply-btn");
+    
 
+
+    dogInfoForm.addEventListener("submit", submitDogInfo);
+    for(let i = 0; i <dogs.length - 2; i++){
+      dogs[i].addEventListener("click", updateSelectedDog);
+    }
+    
     for (const supply of supplies) {
         supply.querySelector(".input-group-text").addEventListener("click", deleteSupply);
     }
