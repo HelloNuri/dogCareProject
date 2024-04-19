@@ -127,8 +127,10 @@
     const dogRegisterForm = document.querySelector("form");
     const supplies = document.querySelectorAll('div.items:last-of-type')[2].querySelectorAll(".item");
     const supplyAddBtn = document.querySelector("#supply-btn");
-    
+    const backBtn = document.querySelector("#backPage");
 
+    backBtn.addEventListener("click", gotoPreviousPage);
+    
 
     dogRegisterForm.addEventListener("submit", submitDogInfo);
     for (const supply of supplies) {
