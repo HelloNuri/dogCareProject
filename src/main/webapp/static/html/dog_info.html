@@ -145,10 +145,13 @@
 
   <script>
     const supplies = document.querySelectorAll('div.items:last-of-type')[2].querySelectorAll(".item");
+    const supplyAddBtn = document.querySelector("#supply-btn");
 
     for (const supply of supplies) {
-        supply.querySelector(".input-group-text");
+        supply.querySelector(".input-group-text").addEventListener("click", deleteSupply);
     }
+
+    supplyAddBtn.addEventListener("click", insertSupply);
   </script>
 </body>
 
