@@ -19,7 +19,7 @@ function fillDogs(){
     return false;
 }
 
-function updateSelectedDog(e){
-    console.log("updateSelectedDog");
+function updateSelectedDog(dogId){
+    console.log("updateSelectedDog: " + dogId);
     return false;
 }

@@ -42,7 +42,7 @@
             강아지 선택
           </button>
           <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="#" dogId="1">골댕이</a></li>
+            <li dogId="1"><a class="dropdown-item" href="#" dogId="1">골댕이</a></li>
             <li><a class="dropdown-item" href="#" dogId="2">은댕이</a></li>
             <li><a class="dropdown-item" href="#" dogId="3">동댕이</a></li>
             <li>
@@ -162,7 +162,7 @@
 
     dogInfoForm.addEventListener("submit", submitDogInfo);
     for(let i = 0; i <dogs.length - 2; i++){
-      dogs[i].addEventListener("click", updateSelectedDog);
+      dogs[i].addEventListener("click", e => updateSelectedDog(e.target.attributes['dogId'].value));
     }
     
     for (const supply of supplies) {
