@@ -29,11 +29,15 @@
       grid-template-rows: min-content min-content auto;
       grid-auto-rows: min-content;
       padding: 0;
+
+
     }
   }
 }
 
-
+form{
+  display: contents;
+}
 
 .grid-row {
   display: contents;
