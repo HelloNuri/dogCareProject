@@ -4,16 +4,25 @@ nav.navbar>div.container-fluid {
     /* grid-template-areas: "back title n"; */
   }
 
+  #body{
+    padding: 1rem;
+  }
+
+  #main-container{
+    display: grid;
+    grid-template-columns: auto;
+    grid-template-rows: min-content 1fr;
+    grid-row-gap: 2rem;
+  }
+
   #title {
     display: flex;
     justify-content: center;
   }
 
   #register-container {
-    padding: 1rem;
     display: flex;
     justify-content: center;
-    margin-top: 1rem;
   }
 
   .form-control {
@@ -38,7 +47,7 @@ nav.navbar>div.container-fluid {
     align-items: center;
 
     > input{
-      width: 5rem;
+      grid-column: span 2;
 
     }
     > button{
@@ -46,4 +55,9 @@ nav.navbar>div.container-fluid {
       height: 2rem;
       align-items: center;
     }
+  }
+
+  .dogCare-logo{
+    height: 40vmin;
+    background-size: 90vmin;
   }

@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <title>Dog Care: 강아지 회원가입</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" href="../img/dogCare.png.ico">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <link rel="stylesheet" href="../css/main.css">
+  <link rel="stylesheet" href="../css/dog_info.css">
+  <link rel="stylesheet" href="../css/dog_register.css">
+
+  <script src="../js/dog_info.js"></script>
+  <script src="../js/dog_register.js"></script>
+</head>
+
+<body>
+  <nav class="navbar navbar-expand-sm bg-primary navbar-primary">
+
+    <div class="container-fluid">
+      <a id="backPage" class="navbar-brand" href="#"><svg xmlns="http://www.w3.org/2000/svg" width="28" height="28"
+          fill="currentColor" class="bi bi-arrow-left" viewBox="0 0 16 16">
+          <path fill-rule="evenodd"
+            d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8" />
+        </svg>
+      </a>
+      <div id="title"><span class="navbar-brand">강아지 회원가입</span></div>
+      <div></div>
+    </div>
+  </nav>
+
+  <div id="body" class="container">
+    <div id="main-container">
+      <form action="">
+        <div id="dogInfo-container" class="logoImage">
+          <div class="grid-row">
+            <div class="label">강아지 정보</div>
+            <div class="items">
+              <div class="item">
+                <div>이름: </div>
+                <input type="text" class="form-control" placeholder="골댕이" name="dog-name" required>
+              </div>
+              <div class="item">
+                <div>품종: </div>
+                <input type="text" class="form-control" placeholder="골든 리트리버" name="dog-breed" required>
+              </div>
+              <div class="item">
+                <div>나이: </div>
+                <input type="number" class="form-control" placeholder="13개월" name="dog-age" required>
+              </div>
+              <div class="item">
+                <div>성별: </div>
+                <input type="text" class="form-control" placeholder="남/여" name="dog-gender" required>
+              </div>
+            </div>
+          </div>
+          <div class="grid-row">
+            <div class="label">강아지 건강정보</div>
+            <div class="items">
+              <div class="item">
+                <div>*체중: </div>
+                <input type="number" class="form-control" placeholder="11.3 (kg)" name="dog-weight" required>
+              </div>
+              <div class="item">
+                <div>*운동량:</div>
+                <input type="number" class="form-control" placeholder="7 (시간/주)" name="dog-exercise" required>
+              </div>
+              <div class="item">
+                <div>비고: </div>
+                <input type="text" class="form-control" placeholder="구역질 자꾸 함" name="dog-note">
+              </div>
+            </div>
+          </div>
+          <div class="grid-row">
+            <div class="label">강아지 용품 정보</div>
+            <div class="items">
+              <div class="item">
+                <select class="form-select" name="supply-category" required>
+                  <option value="">종류</option>
+                  <option value="사료">사료</option>
+                  <option value="치약">치약</option>
+                  <option value="목줄">목줄</option>
+                  <option value="장난감">장난감</option>
+                </select>
+                <div class="input-group"><input type="text" class="form-control" placeholder=" " name="supply-content" required><span
+                    class="input-group-text"><svg xmlns="http://www.w3.org/2000/svg" width="25" height="25"
+                      fill="currentColor" class="bi bi-dash-square-fill" viewBox="0 0 16 16">
+                      <path
+                        d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2zm2.5 7.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1 0-1" />
+                    </svg></span></div>
+
+              </div>
+              <div class="item">
+                <select class="form-select" name="supply-category" required>
+                  <option value="">종류</option>
+                  <option value="사료">사료</option>
+                  <option value="치약">치약</option>
+                  <option value="목줄">목줄</option>
+                  <option value="장난감">장난감</option>
+                </select>
+                <div class="input-group"><input type="text" class="form-control" placeholder=" " name="supply-content" required><span
+                    class="input-group-text"><svg xmlns="http://www.w3.org/2000/svg" width="25" height="25"
+                      fill="currentColor" class="bi bi-dash-square-fill" viewBox="0 0 16 16">
+                      <path
+                        d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2zm2.5 7.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1 0-1" />
+                    </svg></span></div>
+
+              </div>
+              <button type="button" id="supply-btn" class="btn btn-primary"><svg xmlns="http://www.w3.org/2000/svg"
+                  fill="currentColor" class="bi bi-plus-circle-fill" viewBox="0 0 16 16">
+                  <path
+                    d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0M8.5 4.5a.5.5 0 0 0-1 0v3h-3a.5.5 0 0 0 0 1h3v3a.5.5 0 0 0 1 0v-3h3a.5.5 0 0 0 0-1h-3z" />
+                </svg></button>
+            </div>
+          </div>
+        </div>
+        <div style="display: flex;justify-content: end;">
+          <button class="btn btn-primary" style="padding: 1rem 2rem;display: flex;align-items: center;">등록</button>
+        </div>
+      </form>
+    </div>
+  </div>
+  </div>
+
+  <script>
+    const dogRegisterForm = document.querySelector("form");
+    const supplies = document.querySelectorAll('div.items:last-of-type')[2].querySelectorAll(".item");
+    const supplyAddBtn = document.querySelector("#supply-btn");
+    const backBtn = document.querySelector("#backPage");
+
+    backBtn.addEventListener("click", gotoPreviousPage);
+    
+
+    dogRegisterForm.addEventListener("submit", submitDogInfo);
+    for (const supply of supplies) {
+        supply.querySelector(".input-group-text").addEventListener("click", deleteSupply);
+    }
+
+    supplyAddBtn.addEventListener("click", insertSupply);
+  </script>
+</body>
+
+</html>

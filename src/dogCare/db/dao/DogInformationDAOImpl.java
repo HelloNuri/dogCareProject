@@ -11,10 +11,6 @@ import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
 
-import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.api.Order;
-import org.junit.jupiter.api.Test;
-
 import dogCare.db.DTO.DogInfoAddDTO;
 import dogCare.db.DTO.SupplyAddDTO;
 import dogCare.db.VO.DogInfoVO;
@@ -57,9 +53,6 @@ public class DogInformationDAOImpl implements DogInformationDAO{
 		return infoId;
 	}
 	
-	@Test
-	@Order(2)
-	@DisplayName("단일추가 테스트")
 	void addDogInfoTest() throws SQLException {
 		
 		int dogInfoId = addDogInfo(1, null);
@@ -85,9 +78,6 @@ public class DogInformationDAOImpl implements DogInformationDAO{
 		return result;
 	}
 	
-	@Test
-	@Order(3)
-	@DisplayName("단일쿼리 테스트")
 	void getDogInfoTest() {
 		
 	}
@@ -243,7 +233,8 @@ public class DogInformationDAOImpl implements DogInformationDAO{
 		ResultSet rs = pstmt.executeQuery();
 		
 		while(rs.next()) {
-			rankPage.add(Map.of(rs.getString(1), rs.getDouble(2)));
+//			rankPage.add(Map.of(rs.getString(1), rs.getDouble(2)));
+			break;//Todo
 		}
 		return rankPage;
 	}

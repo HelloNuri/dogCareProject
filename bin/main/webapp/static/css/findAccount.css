@@ -1,91 +1,112 @@
+#body {
+  padding: 2rem;
+}
+
+#changePage {
+  display: flex;
+
+  .button {
+    border: none;
+    color: black;
+    border: 1px solid black;
+    padding: 1rem;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    cursor: pointer;
+    border-bottom: none;
+  }
+
+  .button:first-child {
+    border-right: none;
+  }
+
+  .selectPage {
+    background-color: yellow;
+  }
+
+
+}
+
+#findPage-container {
+  border: 1px solid black;
+  width: 100%;
+  height: 100%;
+  display: grid;
+  align-items: center;
+  justify-items: center;
+
+}
 
 #find-container {
 
-    margin: 2rem;
-    padding-top: 1rem;
-    margin-top: 5rem;
-    height: 60vh;
-    border: 1px solid black;
-    display: grid;
-    justify-items: center;
-    align-items: center;
+  height: 70vh;
+  display: grid;
+  grid-template-columns: auto;
+  grid-template-rows: min-content min-content auto;
+  justify-items: left;
+  align-items: center;
 
 
-    #changePage {
-      position: absolute;
-      top: 5rem;
-      left: 2rem;
-      display: flex;
 
-      .button {
-        border: none;
-        color: black;
-        border: 1px solid black;
-        padding: 1rem;
-        text-align: center;
-        text-decoration: none;
+
+  #findIdPage {
+    
+    form {
+      display: grid;
+      justify-items: center;
+      padding: 0;
+      
+      input {
         display: inline-block;
-        font-size: 16px;
-        cursor: pointer;
-        border-bottom: none;
-      }
-      .button:first-child{
-        border-right: none;
+        width: 13rem;
       }
       
-    .selectPage {
-      background-color: yellow;
-    }
-
-
-    }
-
-    #findIdPage {
-      display: none;
-
-      form {
-        display: grid;
-        justify-items: center;
-        padding: 0;
-
-        input {
-          display: inline-block;
-          width: 13rem;
-        }
-
-        button {
-          margin: 10px;
-        }
+      button {
+        margin: 10px;
+        width: 100%;
       }
     }
+  }
+  
+  
+  #findPwdPage {
+    display: none;
+    padding: 1rem;
 
-    #findPwdPage {
-      padding: 1rem;
+    form {
+      display: grid;
+      grid-template-columns: 20% 80%;
+      grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
+      justify-items: left;
+      padding: 0;
+      grid-column-gap: 0.3rem;
+      align-items: center;
 
-      form {
-        display: grid;
-        grid-template-columns: 20% 80%;
-        grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
-        justify-items: left;
-        padding: 0;
-        grid-column-gap: 0.3rem;
-
-        input {
-          display: inline-block;
-          width: 13rem;
-          height: 3rem;
-        }
-
-        button {
-          margin: 10px;
-          grid-column: span 2;
-          justify-self: center;
-        }
+      input {
+        display: inline-block;
+        width: 13rem;
+        height: 3rem;
       }
-      #resetShow{
+
+      button {
+        margin: 10px;
         grid-column: span 2;
+        justify-self: center;
       }
+    }
 
+    #resetShow {
+      grid-column: span 2;
+      background-color: white;
     }
 
   }
+
+}
+
+#logo{
+  height: 28vmax;
+  background-size: 55vmax;
+}
