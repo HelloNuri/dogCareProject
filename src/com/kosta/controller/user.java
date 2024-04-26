@@ -8,22 +8,26 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * Servlet implementation class FrontController
+ * Servlet implementation class user
  */
-@WebServlet("/controller")
-public class FrontController extends HttpServlet {
+@WebServlet("/user")
+public class user extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public FrontController() {
+    public user() {
         super();
-        System.out.println("server");
+        // TODO Auto-generated constructor stub
     }
 
-	@Override
+	/**
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+	 */
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		System.out.println("server start");
+		System.out.println("user");
 	}
+
+
 }
