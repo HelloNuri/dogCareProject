@@ -14,15 +14,6 @@ import com.kosta.dogCare.controller.action.Action;
  */
 @WebServlet("/controller")
 public class FrontControllerServlet extends HttpServlet {
-	private static final long serialVersionUID = 1L;
-       
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public FrontControllerServlet() {
-        super();
-    }
-
 	@Override
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("UTF-8"); //Filter
@@ -30,17 +21,11 @@ public class FrontControllerServlet extends HttpServlet {
 		response.setHeader("Pragma", "no-cache"); 
 		response.setDateHeader("Expires", 0);
 		
-
 		ActionFactroy factory = new ActionFactroy();
 		String cmd = request.getParameter("cmd");
-		
 		
 		Action action = factory.getAction(cmd);
 		String url = action.execute(request);
 		request.getRequestDispatcher(url).forward(request, response);
-		
-		
-		
-		super.service(request, response);
 	}
 }
