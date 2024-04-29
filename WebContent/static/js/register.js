@@ -32,15 +32,35 @@ function isEqualPassword(password1, password2) {
 	return password1 === password2;
 }
 
-function validateId(){
+function validateId(isExist){
 	const uid = document.querySelector("#uid");
-	if(uid.value.length >= 6 && onlyNumberAndEnglish(uid.value)){
-		uid.setCustomValidity("");
+	if(isExist){
+		uid.setCustomValidity("이미 존재하는 ID입니다!");
+	}else if(uid.value.length < 6 || !onlyNumberAndEnglish(uid.value)){
+		uid.setCustomValidity("아이디는 영문 또는 숫자로 이루어진 6글자 이상이어야 합니다!")
 	}else{
-		uid.setCustomValidity("아이디는 영문 및 숫자로 이루어진 6글자 이상이어야 합니다!")
-
+		uid.setCustomValidity("");
 	}
+
+	
 }
+
+function isExistId(){
+	const uid = document.querySelector("#uid");
+	$.ajax({
+		  url: "controller?cmd=isExistId",
+		  data: {
+		    "id":uid.value
+		  },
+		  success: function(response) {
+		    let in_data = JSON.parse(response);
+		    isExist = in_data.result;
+		    validateId(isExist)
+		  }
+		});
+}
+
+
 
 function onlyNumberAndEnglish(str) {
 	return /^[A-Za-z0-9][A-Za-z0-9]*$/.test(str);

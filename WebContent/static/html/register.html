@@ -67,11 +67,10 @@
     const pwdConfirm = document.querySelector("#pwdConfirm");
     const validBtn = document.querySelector("#validBtn");
 
-    uid.addEventListener("keyup", validateId);
-    pwd.addEventListener("keyup",validatePassword);
+    uid.addEventListener("change", isExistId);
+    pwd.addEventListener("change",validatePassword);
     pwdConfirm.addEventListener("keyup",validatePassword);
     document.getElementById("validBtn").addEventListener("click", sendValidNumber);
   </script>
 </body>
-
 </html>

@@ -102,6 +102,10 @@ public class ActionFactroy {
 		case "supplyStatistic":
 			action = new SupplyStatistic();
 			break;
+		case "isExistId":
+			action = new IsExistId();
+			break;
+		
 		}
 		return action;
 	}
