@@ -4,16 +4,27 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+import javax.naming.Context;
+import javax.naming.InitialContext;
+import javax.naming.NamingException;
+import javax.sql.DataSource;
+
 import com.kosta.dogCare.model.VO.UserVO;
 
 public class UserDAOImpl implements UserDAO {
-	private Connection conn; 
+//	private Connection conn; 
+	DataSource dataSource;
 	
-	public UserDAOImpl() throws ClassNotFoundException, SQLException {
-//		Class.forName("oracle.jdbc.OracleDriver");
-//		String url = "jdbc:oracle:thin:@localhost:1521:XE";
-//		conn = DriverManager.getConnection(url, "hr", "hr");
-		conn = ConnectionManager.getConnection();
+	public UserDAOImpl(){
+//		conn = ConnectionManager.getConnection();
+		try {
+			Context context = new InitialContext();
+			dataSource =
+					(DataSource) context.lookup("java:comp/env/jdbc/myoracle");
+			System.out.println(dataSource);
+		} catch (NamingException e) {
+			e.printStackTrace();
+		}
 	}	
 
 	@Override
@@ -21,6 +32,7 @@ public class UserDAOImpl implements UserDAO {
 		boolean result = false;
 		String sql = "select user_id from users where user_id = ?";
 		try {
+			Connection conn = dataSource.getConnection();
 			PreparedStatement pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, userId);
 			ResultSet rs = pstmt.executeQuery();
@@ -29,6 +41,7 @@ public class UserDAOImpl implements UserDAO {
 			}
 			pstmt.close();
 			rs.close();
+			conn.close();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -39,6 +52,7 @@ public class UserDAOImpl implements UserDAO {
 
 	@Override
 	public boolean addUser(UserVO user) throws SQLException {
+		Connection conn = dataSource.getConnection();
 		String sql = "Insert Into users (user_id, name, nickname, password, email_address) values(?, ?, ?, ?, ?)";
 		boolean result = false;
 		//비밀번호 유효성 검사/비밀번호 확인/닉네임 중복 확인/아이디 중복 확인은 UI에서 한다고 가정한다.
@@ -52,6 +66,7 @@ public class UserDAOImpl implements UserDAO {
 		if(rs == 1)
 			result = true;
 		pstmt.close();
+		conn.close();
 		return result;
 	}
 
@@ -60,6 +75,7 @@ public class UserDAOImpl implements UserDAO {
 		String sql = "select user_id from users where email_address = ?";
 		String result = null;
 		try {
+			Connection conn = dataSource.getConnection();
 			PreparedStatement pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, email);
 			ResultSet rs = pstmt.executeQuery();
@@ -67,6 +83,7 @@ public class UserDAOImpl implements UserDAO {
 				result = rs.getString(1);
 			pstmt.close();
 			rs.close();
+			conn.close();
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
@@ -78,6 +95,7 @@ public class UserDAOImpl implements UserDAO {
 		String sql = "Select nickname, name, password, email_address from users where user_Id = ?";
 		UserVO result = null;
 		try {
+			Connection conn = dataSource.getConnection();
 			PreparedStatement pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, userId);
 			ResultSet rs = pstmt.executeQuery();
@@ -86,6 +104,7 @@ public class UserDAOImpl implements UserDAO {
 			}
 			pstmt.close();
 			rs.close();
+			conn.close();
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
@@ -94,9 +113,10 @@ public class UserDAOImpl implements UserDAO {
 
 	@Override
 	public String getNicknameByUserId(String userId) {
-		String sql = "Select nickname from users where user_Id = ?";
+		String sql = "Select name from users where user_Id = ?";
 		String nickname = null;
 		try {
+			Connection conn = dataSource.getConnection();
 			PreparedStatement pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, userId);
 			ResultSet rs = pstmt.executeQuery();
@@ -105,6 +125,7 @@ public class UserDAOImpl implements UserDAO {
 			}
 			pstmt.close();
 			rs.close();
+			conn.close();
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
@@ -116,6 +137,7 @@ public class UserDAOImpl implements UserDAO {
 		String sql = "Select password from users where user_Id = ?";
 		String password = null;
 		try {
+			Connection conn = dataSource.getConnection();
 			PreparedStatement pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, userId);
 			ResultSet rs = pstmt.executeQuery();
@@ -124,6 +146,7 @@ public class UserDAOImpl implements UserDAO {
 			}
 			pstmt.close();
 			rs.close();
+			conn.close();
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
@@ -138,6 +161,7 @@ public class UserDAOImpl implements UserDAO {
 		String sql = "update users set password = ? where user_Id = ?";
 		boolean result = false;
 		try {
+			Connection conn = dataSource.getConnection();
 			PreparedStatement pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, pw);
 			pstmt.setString(2, userId);
@@ -146,6 +170,7 @@ public class UserDAOImpl implements UserDAO {
 				result = true;
 			}
 			pstmt.close();
+			conn.close();
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
