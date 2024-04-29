@@ -5,11 +5,11 @@ import java.io.IOException;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 
-public class addDogInfoUI implements Action {
+public class Logout implements Action {
 
 	@Override
 	public String execute(HttpServletRequest request) throws ServletException, IOException {
-		String url = "static/html/dog_info.html";
+		String url = "controller?cmd=loginUI";
 		return url;
 	}
 

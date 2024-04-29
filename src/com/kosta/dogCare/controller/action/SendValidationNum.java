@@ -5,11 +5,11 @@ import java.io.IOException;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 
-public class registerUI implements Action {
+public class SendValidationNum implements Action {
 
 	@Override
 	public String execute(HttpServletRequest request) throws ServletException, IOException {
-		String url = "static/html/register.html";
+		String url = "static/json/???.json";
 		return url;
 	}
 

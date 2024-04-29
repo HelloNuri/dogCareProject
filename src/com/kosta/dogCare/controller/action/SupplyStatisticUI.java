@@ -5,11 +5,11 @@ import java.io.IOException;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 
-public class registerDogUI implements Action {
+public class SupplyStatisticUI implements Action {
 
 	@Override
 	public String execute(HttpServletRequest request) throws ServletException, IOException {
-		String url = "static/html/dog_register.html";
+		String url = "static/html/dog_statistic.html";
 		return url;
 	}
 

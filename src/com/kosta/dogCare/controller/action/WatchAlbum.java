@@ -5,11 +5,11 @@ import java.io.IOException;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 
-public class findPw implements Action {
+public class WatchAlbum implements Action {
 
 	@Override
 	public String execute(HttpServletRequest request) throws ServletException, IOException {
-		String url = "???.json";
+		String url = "controller?cmd=watchAlbumUI";
 		return url;
 	}
 

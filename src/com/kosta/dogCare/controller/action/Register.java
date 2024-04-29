@@ -5,11 +5,12 @@ import java.io.IOException;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 
-public class mainUI implements Action {
+public class Register implements Action {
 
 	@Override
 	public String execute(HttpServletRequest request) throws ServletException, IOException {
-		String url = "static/html/main_menu.html";
+		String url = "controller?cmd=registerUI";
+		url = "controller?cmd=loginUI";
 		return url;
 	}
 

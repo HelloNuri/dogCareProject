@@ -3,27 +3,27 @@ package com.kosta.dogCare.controller;
 import com.kosta.dogCare.controller.action.Action;
 import com.kosta.dogCare.controller.action.Login;
 import com.kosta.dogCare.controller.action.LoginUI;
-import com.kosta.dogCare.controller.action.addDogInfo;
-import com.kosta.dogCare.controller.action.addDogInfoUI;
-import com.kosta.dogCare.controller.action.albumList;
-import com.kosta.dogCare.controller.action.albumListUI;
-import com.kosta.dogCare.controller.action.checkIdExistence;
-import com.kosta.dogCare.controller.action.checkValidationNum;
-import com.kosta.dogCare.controller.action.dogHealthReport;
-import com.kosta.dogCare.controller.action.dogHealthReportUI;
-import com.kosta.dogCare.controller.action.findAccountUI;
-import com.kosta.dogCare.controller.action.findId;
-import com.kosta.dogCare.controller.action.findPw;
-import com.kosta.dogCare.controller.action.logout;
-import com.kosta.dogCare.controller.action.mainUI;
-import com.kosta.dogCare.controller.action.registerAction;
-import com.kosta.dogCare.controller.action.registerDogUI;
-import com.kosta.dogCare.controller.action.registerUI;
-import com.kosta.dogCare.controller.action.sendValidationNum;
-import com.kosta.dogCare.controller.action.supplyStatistic;
-import com.kosta.dogCare.controller.action.supplyStatisticUI;
-import com.kosta.dogCare.controller.action.watchAlbum;
-import com.kosta.dogCare.controller.action.watchAlbumUI;
+import com.kosta.dogCare.controller.action.AddDogInfo;
+import com.kosta.dogCare.controller.action.AddDogInfoUI;
+import com.kosta.dogCare.controller.action.AlbumList;
+import com.kosta.dogCare.controller.action.AlbumListUI;
+import com.kosta.dogCare.controller.action.CheckIdExistence;
+import com.kosta.dogCare.controller.action.CheckValidationNum;
+import com.kosta.dogCare.controller.action.DogHealthReport;
+import com.kosta.dogCare.controller.action.DogHealthReportUI;
+import com.kosta.dogCare.controller.action.FindAccountUI;
+import com.kosta.dogCare.controller.action.FindId;
+import com.kosta.dogCare.controller.action.FindPw;
+import com.kosta.dogCare.controller.action.Logout;
+import com.kosta.dogCare.controller.action.MainUI;
+import com.kosta.dogCare.controller.action.Register;
+import com.kosta.dogCare.controller.action.RegisterDogUI;
+import com.kosta.dogCare.controller.action.RegisterUI;
+import com.kosta.dogCare.controller.action.SendValidationNum;
+import com.kosta.dogCare.controller.action.SupplyStatistic;
+import com.kosta.dogCare.controller.action.SupplyStatisticUI;
+import com.kosta.dogCare.controller.action.WatchAlbum;
+import com.kosta.dogCare.controller.action.WatchAlbumUI;
 
 public class ActionFactroy {
 	
@@ -37,70 +37,70 @@ public class ActionFactroy {
 			action = new Login();
 			break;
 		case "registerUI":
-			action = new registerUI();
+			action = new RegisterUI();
 			break;
 		case "register":
-			action = new registerAction();
+			action = new Register();
 			break;
 		case "sendValidationNum":
-			action = new sendValidationNum();
+			action = new SendValidationNum();
 			break;
 		case "checkValidationNum":
-			action = new checkValidationNum();
+			action = new CheckValidationNum();
 			break;
 		case "checkIdExistence":
-			action = new checkIdExistence();
+			action = new CheckIdExistence();
 			break;
 		case "findAccountUI":
-			action = new findAccountUI();
+			action = new FindAccountUI();
 			break;
 		case "findId":
-			action = new findId();
+			action = new FindId();
 			break;
 		case "findPw":
-			action = new findPw();
+			action = new FindPw();
 			break;
 		case "mainUI":
-			action = new mainUI();
+			action = new MainUI();
 			break;
 		case "logout":
-			action = new logout();
+			action = new Logout();
 			break;
 		case "addDogInfoUI":
-			action = new addDogInfoUI();
+			action = new AddDogInfoUI();
 			break;
 		case "addDogInfo":
-			action = new addDogInfo();
+			action = new AddDogInfo();
 			break;
 		case "registerDogUI":
-			action = new registerDogUI();
+			action = new RegisterDogUI();
 			break;
 		case "registerDog":
-			action = new registerDogUI();
+			action = new RegisterDogUI();
 			break;
 		case "dogHealthReportUI":
-			action = new dogHealthReportUI();
+			action = new DogHealthReportUI();
 			break;
 		case "dogHealthReport":
-			action = new dogHealthReport();
+			action = new DogHealthReport();
 			break;
 		case "albumListUI":
-			action = new albumListUI();
+			action = new AlbumListUI();
 			break;
 		case "albumList":
-			action = new albumList();
+			action = new AlbumList();
 			break;
 		case "watchAlbumUI":
-			action = new watchAlbumUI();
+			action = new WatchAlbumUI();
 			break;
 		case "watchAlbum":
-			action = new watchAlbum();
+			action = new WatchAlbum();
 			break;
 		case "supplyStatisticUI":
-			action = new supplyStatisticUI();
+			action = new SupplyStatisticUI();
 			break;
 		case "supplyStatistic":
-			action = new supplyStatistic();
+			action = new SupplyStatistic();
 			break;
 		}
 		return action;

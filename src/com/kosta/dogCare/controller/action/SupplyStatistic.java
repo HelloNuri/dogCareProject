@@ -5,11 +5,11 @@ import java.io.IOException;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 
-public class watchAlbumUI implements Action {
+public class SupplyStatistic implements Action {
 
 	@Override
 	public String execute(HttpServletRequest request) throws ServletException, IOException {
-		String url = "static/html/Post.html";
+		String url = "static/json/???.json";
 		return url;
 	}
 
