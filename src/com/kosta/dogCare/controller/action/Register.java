@@ -39,7 +39,7 @@ public class Register implements Action {
 		String expectedNum   = (String)        session.getAttribute(numSessionAttr);
 		LocalDateTime maxAge = (LocalDateTime) session.getAttribute(maxAgeSessionAttr);
 		
-		if(expectedNum == null || maxAge.isAfter(LocalDateTime.now()))
+		if(expectedNum == null || maxAge.isBefore(LocalDateTime.now()))
 			return false;	
 		
 		if(actualNum.equals(expectedNum)){
