@@ -10,7 +10,7 @@ import com.kosta.dogCare.model.VO.UserVO;
 public class RegistrationServiceImpl implements RegistrationService {
 	private UserDAO userDao;
 	
-	public RegistrationServiceImpl() throws ClassNotFoundException, SQLException {
+	public RegistrationServiceImpl(){
 		userDao = new UserDAOImpl();
 	}
 	
@@ -36,10 +36,9 @@ public class RegistrationServiceImpl implements RegistrationService {
 	}
 
 	@Override
-	public boolean register(UserVO user, String confirmPw) {
+	public boolean register(UserVO user) {
 		boolean result = false;
-		if(!userDao.isIdDuplicated(user.getUserId()) && user.getPassword().equals(confirmPw))
-			result = userDao.addUser(user);
+		result = userDao.addUser(user);
 		return result;
 	}
 

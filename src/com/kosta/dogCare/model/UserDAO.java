@@ -17,12 +17,4 @@ public interface UserDAO {
     
     boolean setPassword(String userId, String pw);
 
-	boolean isIdDuplicated(String userId);
-    
-
-
-
-
-    
-
 }

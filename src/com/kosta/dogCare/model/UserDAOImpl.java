@@ -25,26 +25,6 @@ public class UserDAOImpl implements UserDAO {
 	}	
 
 	@Override
-	public boolean isIdDuplicated(String userId) {
-		boolean result = false;
-		String sql = "select user_id from users where user_id = ?";
-		try(Connection conn = dataSource.getConnection();
-				PreparedStatement pstmt = conn.prepareStatement(sql);) {
-			pstmt.setString(1, userId);
-			
-			try(ResultSet rs = pstmt.executeQuery()){
-				if (rs.next()) {
-					result = true;
-				}
-			}
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
-		return result;
-	}
-	
-
-	@Override
 	public boolean addUser(UserVO user){
 		
 		String sql = "Insert Into users (user_id, name, nickname, password, email_address) values(?, ?, ?, ?, ?)";
