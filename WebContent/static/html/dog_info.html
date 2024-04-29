@@ -10,7 +10,7 @@
   <link rel="stylesheet" href="static/css/main.css">
   <link rel="stylesheet" href="static/css/dog_info.css">
 
-  <script src="../js/dog_info.js">
+  <script src="static/js/dog_info.js">
 
   </script>
 
@@ -21,7 +21,7 @@
   <nav class="navbar navbar-expand-sm bg-primary navbar-primary">
 
     <div class="container-fluid">
-      <a id="backPage" class="navbar-brand" href="./main_menu.html"><svg xmlns="http://www.w3.org/2000/svg" width="28"
+      <a id="backPage" class="navbar-brand" href="controller?cmd=mainUI"><svg xmlns="http://www.w3.org/2000/svg" width="28"
           height="28" fill="currentColor" class="bi bi-arrow-left" viewBox="0 0 16 16">
           <path fill-rule="evenodd"
             d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8" />
@@ -34,7 +34,7 @@
 
   <div id="body" class="container">
     <div id="main-container">
-      <form action="#">
+      <form action="controller?cmd=addDogInfo" method="post">
         <div id="select-container">
           <div class="dropdown">
             <button type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown">
