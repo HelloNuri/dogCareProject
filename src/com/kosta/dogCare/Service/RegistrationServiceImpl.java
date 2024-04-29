@@ -39,12 +39,7 @@ public class RegistrationServiceImpl implements RegistrationService {
 	public boolean register(UserVO user, String confirmPw) {
 		boolean result = false;
 		if(!userDao.isIdDuplicated(user.getUserId()) && user.getPassword().equals(confirmPw))
-			try {
-				result = userDao.addUser(user);
-			} catch (SQLException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
+			result = userDao.addUser(user);
 		return result;
 	}
 

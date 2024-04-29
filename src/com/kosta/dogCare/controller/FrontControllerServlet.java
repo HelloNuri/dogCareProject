@@ -26,9 +26,6 @@ public class FrontControllerServlet extends HttpServlet {
 		ActionFactroy factory = new ActionFactroy();
 		String cmd = request.getParameter("cmd");
 		
-		UserDAO dao = new UserDAOImpl();
-		System.out.println(dao.getNicknameByUserId("1"));
-		
 		Action action = factory.getAction(cmd);
 		String url = action.execute(request);
 		request.getRequestDispatcher(url).forward(request, response);
