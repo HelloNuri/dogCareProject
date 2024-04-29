@@ -10,6 +10,11 @@ public class Login implements Action {
 	@Override
 	public String execute(HttpServletRequest request) throws ServletException, IOException {
 		String url = "controller?cmd=loginUI";
+		String id  = request.getParameter("id");
+		String password = request.getParameter("password");
+		
+		//JDBC
+		url = "controller?cmd=mainUI";
 		return url;
 	}
 

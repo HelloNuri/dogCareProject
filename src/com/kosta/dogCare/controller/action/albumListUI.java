@@ -9,7 +9,7 @@ public class albumListUI implements Action {
 
 	@Override
 	public String execute(HttpServletRequest request) throws ServletException, IOException {
-		String url = "controller?cmd=loginUI";
+		String url = "static/html/my_albums.html";
 		return url;
 	}
 

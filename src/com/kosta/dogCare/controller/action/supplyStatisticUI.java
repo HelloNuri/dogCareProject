@@ -9,7 +9,7 @@ public class supplyStatisticUI implements Action {
 
 	@Override
 	public String execute(HttpServletRequest request) throws ServletException, IOException {
-		String url = "controller?cmd=loginUI";
+		String url = "static/html/dog_statistic.html";
 		return url;
 	}
 

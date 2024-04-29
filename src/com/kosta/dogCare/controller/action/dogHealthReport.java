@@ -9,7 +9,7 @@ public class dogHealthReport implements Action {
 
 	@Override
 	public String execute(HttpServletRequest request) throws ServletException, IOException {
-		String url = "controller?cmd=loginUI";
+		String url = "controller?cmd=mainUI";
 		return url;
 	}
 

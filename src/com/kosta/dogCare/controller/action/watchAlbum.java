@@ -9,7 +9,7 @@ public class watchAlbum implements Action {
 
 	@Override
 	public String execute(HttpServletRequest request) throws ServletException, IOException {
-		String url = "controller?cmd=loginUI";
+		String url = "controller?cmd=watchAlbumUI";
 		return url;
 	}
 

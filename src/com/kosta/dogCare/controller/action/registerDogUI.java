@@ -9,7 +9,7 @@ public class registerDogUI implements Action {
 
 	@Override
 	public String execute(HttpServletRequest request) throws ServletException, IOException {
-		String url = "controller?cmd=loginUI";
+		String url = "static/html/dog_register.html";
 		return url;
 	}
 

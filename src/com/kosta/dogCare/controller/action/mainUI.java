@@ -9,7 +9,7 @@ public class mainUI implements Action {
 
 	@Override
 	public String execute(HttpServletRequest request) throws ServletException, IOException {
-		String url = "controller?cmd=loginUI";
+		String url = "static/html/main_menu.html";
 		return url;
 	}
 

@@ -25,12 +25,12 @@
       </div>
       <form action="static/main_menu.html" class="container-fluid">
         <div class="mb-3 mt-3">
-          <input type="text" class="form-control" id="uid" placeholder="아이디" name="uid">
+          <input type="text" class="form-control" id="uid" placeholder="아이디" name="id">
         </div>
-        <input type="password" class="form-control" id="pwd" placeholder="비밀번호" name="pswd">
+        <input type="password" class="form-control" id="pwd" placeholder="비밀번호" name="password">
         <div class="buttons">
-          <button type="button" class="btn"><a href="static/find_account.html">ID/PW찾기</a></button>
-          <button type="button" class="btn"><a href="static/register.html">회원가입</a></button>
+          <button type="button" class="btn"><a href="controller?cmd=findAccountUI">ID/PW찾기</a></button>
+          <button type="button" class="btn"><a href="controller?cmd=registerUI">회원가입</a></button>
         </div>
         <button type="submit" class="btn btn-primary container-fluid" disabled>로그인</button>
 
