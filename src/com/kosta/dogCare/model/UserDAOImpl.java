@@ -12,11 +12,9 @@ import javax.sql.DataSource;
 import com.kosta.dogCare.model.VO.UserVO;
 
 public class UserDAOImpl implements UserDAO {
-//	private Connection conn; 
 	DataSource dataSource;
 	
 	public UserDAOImpl(){
-//		conn = ConnectionManager.getConnection();
 		try {
 			Context context = new InitialContext();
 			dataSource =
@@ -32,8 +30,6 @@ public class UserDAOImpl implements UserDAO {
 		String sql = "select user_id from users where user_id = ?";
 		try(Connection conn = dataSource.getConnection();
 				PreparedStatement pstmt = conn.prepareStatement(sql);) {
-//			Connection conn = dataSource.getConnection();
-//			PreparedStatement pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, userId);
 			
 			try(ResultSet rs = pstmt.executeQuery()){

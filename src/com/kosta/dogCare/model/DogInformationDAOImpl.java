@@ -20,11 +20,9 @@ import com.kosta.dogCare.model.VO.SupplyVO;
 
 
 public class DogInformationDAOImpl implements DogInformationDAO{
-//	private Connection conn; 
 	DataSource dataSource;
 	
 	public DogInformationDAOImpl() throws ClassNotFoundException, SQLException {
-//		conn = ConnectionManager.getConnection();
 		try {
 			Context context = new InitialContext();
 			dataSource =

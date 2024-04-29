@@ -1,5 +1,4 @@
 package com.kosta.dogCare.model;
-import java.sql.SQLException;
 import java.util.Collection;
 import java.util.Map;
 
@@ -9,18 +8,18 @@ import com.kosta.dogCare.model.VO.ImageVO;
 public interface AlbumDAO {
 
 	//album CRUD
-    public int addAlbum(AlbumVO album) throws SQLException;
+    public int addAlbum(AlbumVO album);
     public AlbumVO getAlbum(int albumId);
     public boolean editAlbum(AlbumVO album);
     public boolean deleteAlbum(int albumId, String userId);
 
     //Images CRD
-    public boolean addImages(int albumId, Collection<ImageVO> images) throws SQLException;
+    public boolean addImages(int albumId, Collection<ImageVO> images);
     public Collection<ImageVO> getImages(int albumId);
     public boolean deleteImages(int albumId);
     
     //DogTags CRD
-    public boolean addDogTags(int albumId, Collection<Integer> dogTags) throws SQLException;
+    public boolean addDogTags(int albumId, Collection<Integer> dogTags);
     public Collection<Integer> getDogTags(int albumId);
     public boolean deleteDogTags(int albumId);
     
