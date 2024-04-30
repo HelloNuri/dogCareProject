@@ -32,8 +32,14 @@ function isEqualPassword(password1, password2) {
 	return password1 === password2;
 }
 
-function validateId(isExist){
+async function validateId(){
 	const uid = document.querySelector("#uid");
+	
+	let url = "controller?cmd=isExistId&id=" +uid.value;
+	let res = await fetch(url);
+	let data = await res.json();
+	let isExist = data.result;
+	
 	if(isExist){
 		uid.setCustomValidity("이미 존재하는 ID입니다!");
 	}else if(uid.value.length < 6 || !onlyNumberAndEnglish(uid.value)){
@@ -43,21 +49,6 @@ function validateId(isExist){
 	}
 
 	
-}
-
-function isExistId(){
-	const uid = document.querySelector("#uid");
-	$.ajax({
-		  url: "controller?cmd=isExistId",
-		  data: {
-		    "id":uid.value
-		  },
-		  success: function(response) {
-		    let in_data = JSON.parse(response);
-		    isExist = in_data.result;
-		    validateId(isExist)
-		  }
-		});
 }
 
 

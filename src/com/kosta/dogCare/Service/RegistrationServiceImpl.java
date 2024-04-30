@@ -29,9 +29,14 @@ public class RegistrationServiceImpl implements RegistrationService {
 	@Override
 	public boolean resetPassword(String userId, String name, String email) {
 		boolean result = false;
-		UserVO user = userDao.getUser(userId);
-		if(user.getName().equals(name) && user.getEmailAddress().equals(email))
-			result = userDao.setPassword(userId, "0000");
+		try{
+			UserVO user = userDao.getUser(userId);
+			if(user.getName().equals(name) && user.getEmailAddress().equals(email))
+				result = userDao.setPassword(userId, "00000000");
+			
+		}catch(Exception e){
+			
+		}
 		return result;
 	}
 

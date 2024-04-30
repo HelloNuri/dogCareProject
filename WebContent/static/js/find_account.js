@@ -22,39 +22,34 @@ function updateSelectButton(buttonContent){
         pwdFindPage.style.display = "grid";
     }
 }
-function findId(e){
+async function findId(e){
     e.preventDefault();
     const email = document.querySelector("#id-email").value;
     const idShowBow = document.querySelector("#idShow");
-
-    let uid = getUidByEmail(email);
+    
+    let url = "controller?cmd=findId&email=" + email;
+    let res = await fetch(url);
+    let uid = await res.text();
+    console.log(uid.trim().length);
     let message = email + "님의 계정은 존재하지 않습니다.";
-    if(uid != null)
+    if(uid != null && uid.trim().length != 0)
         message = email + "님의 아이디는 " + uid + "입니다.";
-
     idShowBow.innerHTML = message;
 }
 
-function getUidByEmail(email){
-    let uid = null;
-    return uid;
-}
-
-function findPwd(e){
+async function findPwd(e){
     e.preventDefault();
     const uid = document.querySelector("#pwd-id").value;
     const name = document.querySelector("#pwd-name").value;
     const email = document.querySelector("#pwd-email").value;
     const pwdShowBow = document.querySelector("#resetShow");
 
-    let isPwdReset = resetPwd(uid, name, email);
+    let url = "controller?cmd=findPw&id="+uid+"&name="+name+"&email="+email;
+    const res = await fetch(url);
+    const in_data = await res.json();
+    
     let message = "아이디, 이름, 이메일이 등록된 정보와 일치하지 않습니다.";
-    if(isPwdReset)
+    if(in_data.result)
         message = "등록된 이메일로 초기화 메일을 전송하였습니다.";
     pwdShowBow.innerHTML = message;
-}
-
-function resetPwd(uid, name, email){
-    let isPwdReset = false;
-    return isPwdReset;
 }

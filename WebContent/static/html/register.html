@@ -67,7 +67,7 @@
     const pwdConfirm = document.querySelector("#pwdConfirm");
     const validBtn = document.querySelector("#validBtn");
 
-    uid.addEventListener("change", isExistId);
+    uid.addEventListener("change", validateId);
     pwd.addEventListener("change",validatePassword);
     pwdConfirm.addEventListener("keyup",validatePassword);
     document.getElementById("validBtn").addEventListener("click", sendValidNumber);

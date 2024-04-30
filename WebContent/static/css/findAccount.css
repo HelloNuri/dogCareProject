@@ -56,7 +56,8 @@
     form {
       display: grid;
       justify-items: center;
-      padding: 0;
+      padding-top: 1rem;
+      padding-bottom:1rem;
       
       input {
         display: inline-block;
@@ -80,7 +81,8 @@
       grid-template-columns: 20% 80%;
       grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
       justify-items: left;
-      padding: 0;
+      padding-top: 1rem;
+      padding-bottom:1rem;
       grid-column-gap: 0.3rem;
       align-items: center;
 

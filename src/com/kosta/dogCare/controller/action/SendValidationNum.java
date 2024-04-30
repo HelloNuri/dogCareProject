@@ -13,7 +13,7 @@ public class SendValidationNum implements Action {
 		String url = "static/json/false.jsp";
 		int maxAgeMins = 3;
 		
-		String vNumber = createVNumber(); 
+		String vNumber = createVNumber();
 		LocalDateTime expiredDate = LocalDateTime.now().plusMinutes(maxAgeMins);
 		
 		HttpSession session = request.getSession();
