@@ -1,4 +1,4 @@
-package com.kosta.dogCare.controller;
+package com.kosta.dogCare.controller.action;
 
 import java.io.IOException;
 
@@ -6,7 +6,6 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 
 import com.kosta.dogCare.Service.RegistrationServiceImpl;
-import com.kosta.dogCare.controller.action.Action;
 
 public class IsExistId implements Action {
 

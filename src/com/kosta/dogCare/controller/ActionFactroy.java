@@ -14,6 +14,7 @@ import com.kosta.dogCare.controller.action.DogHealthReportUI;
 import com.kosta.dogCare.controller.action.FindAccountUI;
 import com.kosta.dogCare.controller.action.FindId;
 import com.kosta.dogCare.controller.action.FindPw;
+import com.kosta.dogCare.controller.action.IsExistId;
 import com.kosta.dogCare.controller.action.Logout;
 import com.kosta.dogCare.controller.action.MainUI;
 import com.kosta.dogCare.controller.action.Register;
