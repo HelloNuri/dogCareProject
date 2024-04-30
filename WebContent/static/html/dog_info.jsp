@@ -1,3 +1,6 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html lang="ko">
 
@@ -42,13 +45,13 @@
               강아지 선택
             </button>
             <ul class="dropdown-menu">
-              <li dogId="1"><a class="dropdown-item" href="#" dogId="1">골댕이</a></li>
-              <li><a class="dropdown-item" href="#" dogId="2">은댕이</a></li>
-              <li><a class="dropdown-item" href="#" dogId="3">동댕이</a></li>
+            <c:forEach var="dog" items="${dogs}">
+            	<li><a class="dropdown-item" href="" dogId="${dog.getDogId()}">${dog.getName()}</a></li>
+            </c:forEach>
               <li>
                 <hr class="dropdown-divider">
               </li>
-              <li><a class="dropdown-item" href="controller?cmd=addDogInfo"
+              <li><a class="dropdown-item" href="controller?cmd=registerDogUI"
                   style="display: flex; justify-content: center; color: green;"><svg xmlns="http://www.w3.org/2000/svg"
                     width="32" height="32" fill="currentColor" class="bi bi-plus-circle-fill" viewBox="0 0 16 16">
                     <path

@@ -1,6 +1,5 @@
 package com.kosta.dogCare.Service;
 
-import java.sql.SQLException;
 import java.util.Collection;
 
 import com.kosta.dogCare.model.DogDAO;
@@ -9,7 +8,7 @@ import com.kosta.dogCare.model.VO.DogVO;
 
 public class DogRegistrationServiceImpl implements DogRegistrationService{
 	private DogDAO dogDao;
-	public DogRegistrationServiceImpl() throws ClassNotFoundException, SQLException{
+	public DogRegistrationServiceImpl(){
 		dogDao = new DogDAOImpl();
 	}
 	

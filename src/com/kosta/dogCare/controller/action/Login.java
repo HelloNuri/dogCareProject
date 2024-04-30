@@ -22,18 +22,11 @@ public class Login implements Action {
 		String userId  = request.getParameter("id");
 		String pw = request.getParameter("password");
 		
-		//JDBC
-		try {
-			if(new RegistrationServiceImpl().login(userId, pw)){
-				url = "controller?cmd=mainUI";
-				HttpSession session = request.getSession();
-				
-				Collection<DogVO> dogs = new DogRegistrationServiceImpl().getDogsByUserId(userId);
-				session.setAttribute("loginId", userId);
-				session.setAttribute("dogs", dogs);
-			}
-		} catch (ClassNotFoundException | SQLException e) {
-			e.printStackTrace();
+		if(new RegistrationServiceImpl().login(userId, pw)){
+			url = "controller?cmd=mainUI";
+			HttpSession session = request.getSession();
+			
+			session.setAttribute("loginId", userId);
 		}
 		return url;
 	}

@@ -17,7 +17,7 @@ import com.kosta.dogCare.model.VO.DogVO;
 public class DogDAOImpl implements DogDAO{
 	DataSource dataSource;
 	
-	public DogDAOImpl() throws ClassNotFoundException, SQLException {
+	public DogDAOImpl(){
 		try {
 			Context context = new InitialContext();
 			dataSource =
