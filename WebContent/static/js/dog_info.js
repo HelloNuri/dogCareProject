@@ -1,6 +1,6 @@
-function deleteSupply(e){
-    console.log("deleteSupply()");
-    return false;
+function deleteSupply(node){
+    const target = node.parentElement.parentElement;
+    target.remove();
 }
 
 function insertSupply(e){
@@ -16,10 +16,6 @@ function getSupplyTemplate(){
     
     const selectElement = document.createElement('select'); // Create the select element
     selectElement.classList.add('form-select'); // Add the 'form-select' class
-    
-    const defaultOption = document.createElement('option'); // Create the default option
-    defaultOption.textContent = '종류';
-    selectElement.appendChild(defaultOption); // Add the default option to the select
     
     const productOptions = getSupplyOptions();
     
@@ -44,6 +40,8 @@ function getSupplyTemplate(){
     
     const spanElement = document.createElement('span'); // Create the span for the icon
     spanElement.classList.add('input-group-text'); // Add the 'input-group-text' class
+//    spanElement.classList.add('delete-btn');
+    spanElement.setAttribute('onclick','deleteSupply(this)');
     
     const svgElement = document.createElementNS('http://www.w3.org/2000/svg', 'svg'); // Create the SVG element
     svgElement.setAttribute('width', '25');

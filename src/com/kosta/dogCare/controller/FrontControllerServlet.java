@@ -8,8 +8,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.kosta.dogCare.controller.action.Action;
-import com.kosta.dogCare.model.UserDAO;
-import com.kosta.dogCare.model.UserDAOImpl;
 
 /**
  * Servlet implementation class FrontController
