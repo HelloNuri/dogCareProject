@@ -46,7 +46,7 @@
             </button>
             <ul class="dropdown-menu">
             <c:forEach var="dog" items="${dogs}">
-            	<li><a class="dropdown-item" href="" dogId="${dog.getDogId()}">${dog.getName()}</a></li>
+            	<li><a class="dropdown-item" dog-id="${dog.getDogId()}">${dog.getName()}</a></li>
             </c:forEach>
               <li>
                 <hr class="dropdown-divider">
@@ -129,7 +129,6 @@
 
 
   <script>
-    fillDogs();
     const dogInfoForm = document.querySelector("form");
     const dogSelectBtn = document.querySelector(".dropdown button");
     const dogs = document.querySelector(".dropdown button").nextElementSibling.querySelectorAll("li");
@@ -140,7 +139,7 @@
 
     dogInfoForm.addEventListener("submit", submitDogInfo);
     for (let i = 0; i < dogs.length - 2; i++) {
-      dogs[i].addEventListener("click", e => updateSelectedDog(e.target.attributes['dogId'].value));
+      dogs[i].addEventListener("click", (e) => updateSelectedDog(e));
     }
 
     supplyAddBtn.addEventListener("click", insertSupply);

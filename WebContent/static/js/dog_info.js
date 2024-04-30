@@ -78,12 +78,9 @@ function submitDogInfo(e){
     // hidden type input도 채워야 함.
 }
 
-function fillDogs(){
-    console.log("fillDogs");
-    return false;
-}
-
-function updateSelectedDog(dogId){
-    console.log("updateSelectedDog: " + dogId);
-    return false;
+function updateSelectedDog(e){
+	e.preventDefault();
+    const selectedBox = document.querySelector("#select-container>div>button");
+    selectedBox.textContent = e.target.innerText;
+    selectedBox.setAttribute("dog-id", e.target.getAttribute("dog-id"));
 }
