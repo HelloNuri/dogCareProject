@@ -40,7 +40,7 @@ async function validateId(){
 	let data = await res.json();
 	let isExist = data.result;
 	
-	if(isExist){
+	if(foo(uid)){
 		uid.setCustomValidity("이미 존재하는 ID입니다!");
 	}else if(uid.value.length < 6 || !onlyNumberAndEnglish(uid.value)){
 		uid.setCustomValidity("아이디는 영문 또는 숫자로 이루어진 6글자 이상이어야 합니다!")
@@ -51,7 +51,15 @@ async function validateId(){
 	
 }
 
-
+function isExist(uid){
+	
+	let url = "controller?cmd=isExistId&id=" +uid.value;
+	let res = await fetch(url);
+	let data = await res.json();
+	let isExist = data.result;
+	
+	return isExist
+}
 
 function onlyNumberAndEnglish(str) {
 	return /^[A-Za-z0-9][A-Za-z0-9]*$/.test(str);

@@ -9,7 +9,7 @@ public class AddDogInfo implements Action {
 
 	@Override
 	public String execute(HttpServletRequest request) throws ServletException, IOException {
- 		String url = "static/js/history_back.js";
+ 		String url = "controller";
 		return url;
 	}
 

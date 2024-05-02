@@ -19,7 +19,7 @@ function getSupplyTemplate(){
     
     const productOptions = getSupplyOptions();
     
-    for (const productOption of productOptions) {
+    for(const productOption of productOptions) {
       const optionElement = document.createElement('option');
       optionElement.value = productOption.value;
       optionElement.textContent = productOption.text;
@@ -73,14 +73,33 @@ function getSupplyOptions(){
 }
 
 function submitDogInfo(e){
-    console.log("submitDogInfo()");
     e.preventDefault();
+    const selectedBox = document.querySelector("#select-container>div>button");
+    if(selectedBox.getAttribute("dog-id") == null){
+    	selectedBox.click();
+    	return;
+    }
+    e.target.submit();
     // hidden type input도 채워야 함.
 }
 
 function updateSelectedDog(e){
 	e.preventDefault();
+	const dogInfoInputs = document.querySelector(".items").querySelectorAll('input');
     const selectedBox = document.querySelector("#select-container>div>button");
     selectedBox.textContent = e.target.innerText;
     selectedBox.setAttribute("dog-id", e.target.getAttribute("dog-id"));
+    
+    let ageMills = new Date() - new Date(e.target.getAttribute("dog-birth-date"));
+    const ageMonths = Math.floor(ageMills / (1000 * 60 * 60 * 24 * 30));
+    if(e.target.getAttribute("dog-gender") == "M")
+    	genderChar = "남";
+    else
+   		genderChar = "여";
+   	dogInfoInputs[0].value = e.target.innerText;
+   	dogInfoInputs[1].value = e.target.getAttribute("dog-breed");
+   	dogInfoInputs[2].value = ageMonths;
+   	dogInfoInputs[3].value = genderChar;
+   	
+   		
 }

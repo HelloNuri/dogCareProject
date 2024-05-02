@@ -7,3 +7,7 @@ function gotoPreviousPage(e) {
     }
 }
 
+function submitDogRegister(e){
+	e.preventDefault();
+	console.log("df");
+}

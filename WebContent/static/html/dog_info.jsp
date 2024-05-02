@@ -9,7 +9,9 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="icon" href="static/img/dogCare.png.ico">
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script> -->
+  <script src="static/js/bootstrap.bundle.min.js"></script>
+
   <link rel="stylesheet" href="static/css/main.css">
   <link rel="stylesheet" href="static/css/dog_info.css">
 
@@ -40,13 +42,11 @@
       <form action="controller?cmd=addDogInfo" method="post">
         <div id="select-container">
           <div class="dropdown">
-            <button type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown">
-
-              강아지 선택
+            <button type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown">강아지 선택
             </button>
             <ul class="dropdown-menu">
             <c:forEach var="dog" items="${dogs}">
-            	<li><a class="dropdown-item" dog-id="${dog.getDogId()}">${dog.getName()}</a></li>
+            	<li><a class="dropdown-item" dog-id="${dog.getDogId()}" dog-breed="${dog.getBreed()}" dog-birth-date="${dog.getBirthDate()}" dog-gender="${dog.getGender()}">${dog.getName()}</a></li>
             </c:forEach>
               <li>
                 <hr class="dropdown-divider">
@@ -59,7 +59,7 @@
                   </svg></a></li>
             </ul>
           </div>
-          <input type="date" name="datetime-local" value="" id="infoDate" class="form-control" name="dogInfoDate">
+          <input type="date" name="datetime-local" id="infoDate" class="form-control" name="dogInfoDate">
         </div>
         <div id="dogInfo-container" class="logoImage">
           <div class="grid-row">
@@ -134,6 +134,8 @@
     const dogs = document.querySelector(".dropdown button").nextElementSibling.querySelectorAll("li");
     const supplies = document.querySelectorAll('div.items:last-of-type')[2].querySelectorAll(".item");
     const supplyAddBtn = document.querySelector("#supply-btn");
+    
+    document.querySelector("#infoDate").value = new Date().toISOString().slice(0, 10);
 
 
 

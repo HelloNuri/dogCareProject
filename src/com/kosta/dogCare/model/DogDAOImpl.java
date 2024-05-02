@@ -42,7 +42,7 @@ public class DogDAOImpl implements DogDAO{
 			pstmt.setInt(i++, dogId);
 			pstmt.setString(i++, dog.getName());
 			pstmt.setString(i++, dog.getBreed());
-			pstmt.setString(i++, dog.getBrithDate().toString());
+			pstmt.setString(i++, dog.getBirthDate().toString());
 			pstmt.setString(i++, "" + dog.getGender());
 			pstmt.setString(i++, "" + dog.getNeutrification());
 			pstmt.setString(i++, dog.getUserId());
