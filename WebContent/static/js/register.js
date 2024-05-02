@@ -40,7 +40,7 @@ async function validateId(){
 	let data = await res.json();
 	let isExist = data.result;
 	
-	if(foo(uid)){
+	if(isExist){
 		uid.setCustomValidity("이미 존재하는 ID입니다!");
 	}else if(uid.value.length < 6 || !onlyNumberAndEnglish(uid.value)){
 		uid.setCustomValidity("아이디는 영문 또는 숫자로 이루어진 6글자 이상이어야 합니다!")
@@ -51,30 +51,17 @@ async function validateId(){
 	
 }
 
-function isExist(uid){
-	
-	let url = "controller?cmd=isExistId&id=" +uid.value;
-	let res = await fetch(url);
-	let data = await res.json();
-	let isExist = data.result;
-	
-	return isExist
-}
-
 function onlyNumberAndEnglish(str) {
 	return /^[A-Za-z0-9][A-Za-z0-9]*$/.test(str);
 }
 
-function sendValidNumber(){
-	$.ajax({
-		url: "controller?cmd=sendValidationNum",
-		success: function(response) {
-			response = JSON.parse(response);
-			if(response.result)
-				console.log("인증번호가 발급되었습니다.");
-			else
-				console.log("인증번호 발급 실패! 이 현상이 반복되면 IT부서에 문의해주시기 바랍니다.");
-		}
-	});
-	return true;
+async function sendValidNumber(){
+    const url = "controller?cmd=sendValidationNum";
+    const res = await fetch(url);
+    const in_data = await res.json();
+    const result = in_data.result;
+    if(result)
+    	console.log("인증번호가 발급되었습니다.");
+    else
+    	console.log("인증번호 발급 실패! 이 현상이 반복되면 IT부서에 문의해주시기 바랍니다.");
 }
