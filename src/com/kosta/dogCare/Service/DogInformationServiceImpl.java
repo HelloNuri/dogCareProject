@@ -17,15 +17,18 @@ public class DogInformationServiceImpl implements DogInformationService{
 	DogInformationDAO dogInfoDao;
 	DogDAO dogDao;
 	
-	public DogInformationServiceImpl() throws ClassNotFoundException, SQLException{
+	public DogInformationServiceImpl(){
 		dogInfoDao = new DogInformationDAOImpl();
 		dogDao = new DogDAOImpl();
 	}
 
 	@Override
-	public boolean addDogHealthReport(int dogId, DogInfoVO dogInfo, Collection<SupplyVO> supplies) throws SQLException {
+	public boolean addDogHealthReport(DogInfoVO dogInfo, Collection<SupplyVO> supplies){
 		boolean result = false;
-		int infoId = dogInfoDao.addDogInfo(dogId, dogInfo);
+		int infoId = dogInfoDao.addDogInfo(dogInfo);
+		if(infoId == -1)
+			return false;
+		
 		result = dogInfoDao.addDogSupplies(infoId, supplies);
 		return result;
 	}
@@ -54,7 +57,7 @@ public class DogInformationServiceImpl implements DogInformationService{
 	}
 
 	@Override
-	public Collection<Map<String, Double>> getSupplyStatistic(String breed, int startAge, int endAge, String category) throws SQLException {
+	public Collection<Map<String, Double>> getSupplyStatistic(String breed, int startAge, int endAge, String category){
 		return dogInfoDao.getSupplyStatistic(breed, startAge, endAge, category);
 	}
 

@@ -9,7 +9,7 @@ import com.kosta.dogCare.model.VO.SupplyVO;
 public interface DogInformationDAO {
 	
 	//DogInfo CRUD
-    public int addDogInfo(int dogId, DogInfoVO dogInfo);
+    public int addDogInfo(DogInfoVO dogInfo);
     public Collection<DogInfoVO> getDogInfos(int dogId);
 
     //Supplies CRUD

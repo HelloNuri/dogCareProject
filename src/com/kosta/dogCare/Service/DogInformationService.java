@@ -9,10 +9,10 @@ import com.kosta.dogCare.model.VO.SupplyVO;
 
 
 public interface DogInformationService {
-	public boolean addDogHealthReport(int dogId, DogInfoVO dogInfo, Collection<SupplyVO> supplies) throws SQLException;
+	public boolean addDogHealthReport(DogInfoVO dogInfo, Collection<SupplyVO> supplies);
 	
     public Map<Integer, Collection<Double>> getHealthGraphByDogId(int dogId);
     
-	public Collection<Map<String, Double>> getSupplyStatistic(String breed, int startAge, int endAge, String category) throws SQLException;
+	public Collection<Map<String, Double>> getSupplyStatistic(String breed, int startAge, int endAge, String category);
 	
 }

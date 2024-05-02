@@ -64,7 +64,7 @@
         <div id="dogInfo-container" class="logoImage">
           <div class="grid-row">
             <div class="label">강아지 정보</div>
-            <input type="hidden" name="dogId" required>
+            <input type="hidden" id="dogId" name="dogId" required>
             <div class="items">
               <div class="item">
                 <div>이름: </div>

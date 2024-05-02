@@ -16,6 +16,7 @@ function getSupplyTemplate(){
     
     const selectElement = document.createElement('select'); // Create the select element
     selectElement.classList.add('form-select'); // Add the 'form-select' class
+    selectElement.name = "supplyCategory";
     
     const productOptions = getSupplyOptions();
     
@@ -36,6 +37,7 @@ function getSupplyTemplate(){
     inputElement.classList.add('form-control');
     inputElement.placeholder = ' ';
     inputElement.required = true;
+    inputElement.name = "supplyName";
     inputGroupDiv.appendChild(inputElement); // Add the input element to its div
     
     const spanElement = document.createElement('span'); // Create the span for the icon
@@ -75,7 +77,7 @@ function getSupplyOptions(){
 function submitDogInfo(e){
     e.preventDefault();
     const selectedBox = document.querySelector("#select-container>div>button");
-    if(selectedBox.getAttribute("dog-id") == null){
+    if(document.querySelector("#dogId").value.length == 0){
     	selectedBox.click();
     	return;
     }
@@ -88,7 +90,7 @@ function updateSelectedDog(e){
 	const dogInfoInputs = document.querySelector(".items").querySelectorAll('input');
     const selectedBox = document.querySelector("#select-container>div>button");
     selectedBox.textContent = e.target.innerText;
-    selectedBox.setAttribute("dog-id", e.target.getAttribute("dog-id"));
+    document.querySelector("#dogId").value = e.target.getAttribute("dog-id");
     
     let ageMills = new Date() - new Date(e.target.getAttribute("dog-birth-date"));
     const ageMonths = Math.floor(ageMills / (1000 * 60 * 60 * 24 * 30));

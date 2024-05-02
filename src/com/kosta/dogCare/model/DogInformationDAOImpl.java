@@ -22,7 +22,7 @@ import com.kosta.dogCare.model.VO.SupplyVO;
 public class DogInformationDAOImpl implements DogInformationDAO{
 	DataSource dataSource;
 	
-	public DogInformationDAOImpl() throws ClassNotFoundException, SQLException {
+	public DogInformationDAOImpl(){
 		try {
 			Context context = new InitialContext();
 			dataSource =
@@ -36,7 +36,7 @@ public class DogInformationDAOImpl implements DogInformationDAO{
 	
 	
 	@Override
-	public int addDogInfo(int dogId, DogInfoVO dogInfo){
+	public int addDogInfo(DogInfoVO dogInfo){
 		String sql = "insert into dog_Informations (information_id, weight, exercise_time, note, upload_time, dog_id) values (?, ?, ?, ?, ?, ?)";
 		int infoId = -1;
 		try(Connection conn = dataSource.getConnection();
@@ -51,7 +51,7 @@ public class DogInformationDAOImpl implements DogInformationDAO{
 			pstmt.setDouble(3, dogInfo.getExerciseTime());
 			pstmt.setString(4, dogInfo.getNote());
 			pstmt.setTimestamp(5, dogInfo.getUploadTime());
-			pstmt.setDouble(6, dogId);
+			pstmt.setDouble(6, dogInfo.getDogId());
 			pstmt.executeUpdate();
 			
 		} catch (SQLException e) {
