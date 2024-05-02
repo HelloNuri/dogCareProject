@@ -1,414 +1,132 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
+
 <head>
-  <title>Bootstrap Example</title>
+  <title>Dog Care: 강아지 건강정보 입력</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-  <link rel="stylesheet" href="static/css/main.css">
+  <link rel="icon" href="static/img/dogCare.png.ico">
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-  
-<style>
+  <link rel="stylesheet" href="static/css/main.css">
+  <link rel="stylesheet" href="static/css/dog_info.css">
 
+  <script src="static/js/dog_info.js">
 
- 	body {
- 		background-image: url("file:///C:/Users/KOSTA/Desktop/img/logo.svg");
- 		background-repeat:no-repeat;
-		background-position:5px 30px;
- 	}
+  </script>
 
-	.cheakbox1 {
-		display:flex;
-		align-items:space-around;
-	}
-
-
-	.container {
-		display:grid;
-		grid-template-rows:1fr 0.04fr 2fr;
-		padding:1em;
-	}
-	
-	.button2 {
-		display:flex;
-		align-self:flex-end;
-	}
-	
-	.btn-group {
-		display:flex;
-		align-self:flex-start;
-	}
-	
-	
-	.btn-search {
-		display:flex;
-		width:35em;
-		heigth:2em;	
-		justify-content:flex-end;
-		align-self:flex-end;
-	}
-	
-	.container0 {
-		grid-area:1/1/2/2;
-	}
-
-
-	.container1 {
-		grid-area:3/1/4/2;
-		display:flex;
-		align-items:flex-start;
-
-	}
-
-	#ctn1Viewer {
-		display:none;
-	}
-	
-	
-	#ctn1_2Viewer {
-		display:none;	
-	}
-	
-	#ctn1_3Viewer {
-		display:none;	
-	}
-
-	#ctn1_4Viewer {
-		display:none;	
-	}
-
-
-</style>  
+  <!-- 항목 삭제버튼의 이미지를 .class로 만들면 리소스를 아낄 수 있지 않을까? -->
 </head>
+
 <body>
+  <nav class="navbar navbar-expand-sm bg-primary navbar-primary">
+
+    <div class="container-fluid">
+      <a id="backPage" class="navbar-brand" href="controller?cmd=mainUI"><svg xmlns="http://www.w3.org/2000/svg" width="28"
+          height="28" fill="currentColor" class="bi bi-arrow-left" viewBox="0 0 16 16">
+          <path fill-rule="evenodd"
+            d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8" />
+        </svg>
+      </a>
+      <div id="title"><span class="navbar-brand">강아지 건강정보 입력</span></div>
+      <div></div>
+    </div>
+  </nav>
+
+  <div id="body" class="container">
+    <div id="main-container">
+      <form action="controller?cmd=addDogInfo" method="post">
+        <div id="select-container">
+          <div class="dropdown">
+            <button type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown">
+
+              강아지 선택
+            </button>
+            <ul class="dropdown-menu">
+              <li dogId="1"><a class="dropdown-item" href="#" dogId="1">골댕이</a></li>
+              <li><a class="dropdown-item" href="#" dogId="2">은댕이</a></li>
+              <li><a class="dropdown-item" href="#" dogId="3">동댕이</a></li>
+              <li>
+                <hr class="dropdown-divider">
+              </li>
+              <li><a class="dropdown-item" href="controller?cmd=addDogInfo"
+                  style="display: flex; justify-content: center; color: green;"><svg xmlns="http://www.w3.org/2000/svg"
+                    width="32" height="32" fill="currentColor" class="bi bi-plus-circle-fill" viewBox="0 0 16 16">
+                    <path
+                      d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0M8.5 4.5a.5.5 0 0 0-1 0v3h-3a.5.5 0 0 0 0 1h3v3a.5.5 0 0 0 1 0v-3h3a.5.5 0 0 0 0-1h-3z" />
+                  </svg></a></li>
+            </ul>
+          </div>
+          <input type="date" name="datetime-local" value="" id="infoDate" class="form-control" name="dogInfoDate">
+        </div>
+        <div id="dogInfo-container" class="logoImage">
+          <div class="grid-row">
+            <div class="label">강아지 정보</div>
+            <input type="hidden" name="dogId" required>
+            <div class="items">
+              <div class="item">
+                <div>이름: </div>
+                <input type="text" class="form-control" placeholder="골댕이" disabled>
+              </div>
+              <div class="item">
+                <div>품종: </div>
+                <input type="text" class="form-control" placeholder="골든 리트리버" disabled>
+              </div>
+              <div class="item">
+                <div>나이: </div>
+                <input type="text" class="form-control" placeholder="13개월" disabled>
+              </div>
+              <div class="item">
+                <div>성별: </div>
+                <input type="text" class="form-control" placeholder="남" disabled>
+              </div>
+            </div>
+          </div>
+          <div class="grid-row">
+            <div class="label">강아지 건강정보</div>
+            <div class="items">
+              <div class="item">
+                <div>*체중: </div>
+                <input type="number" class="form-control" placeholder="11.3 (kg)" name="dogWeight" required>
+              </div>
+              <div class="item">
+                <div>*운동량:</div>
+                <input type="number" class="form-control" placeholder="7 (시간/주)" name="dogExerciseTime" required>
+              </div>
+              <div class="item">
+                <div>비고: </div>
+                <input type="text" class="form-control" placeholder="구역질 자꾸 함" name="dogNote">
+              </div>
+            </div>
+          </div>
+          <div class="grid-row">
+            <div class="label">강아지 용품 정보</div>
+            <div class="items">
+              
+              <button type="button" id="supply-btn" class="btn btn-primary"><svg xmlns="http://www.w3.org/2000/svg"
+                  fill="currentColor" class="bi bi-plus-circle-fill" viewBox="0 0 16 16">
+                  <path
+                    d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0M8.5 4.5a.5.5 0 0 0-1 0v3h-3a.5.5 0 0 0 0 1h3v3a.5.5 0 0 0 1 0v-3h3a.5.5 0 0 0 0-1h-3z" />
+                </svg>
+              </button>
 
 
+            </div>
 
-<nav class="navbar navbar-expand-sm bg-primary navbar-primary" style="background-color:#92d050 !important;">
-  
-  <div class="container-fluid">
-    <a class="navbar-brand text-center" href="#"><svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="currentColor" class="bi bi-arrow-left" viewBox="0 0 16 16">
-      <path fill-rule="evenodd" d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8"/>
-    </svg>
-    </a>
-    <span id="title" class="navbar-brand">관련 용품 통계</span>
+          </div>
+        </div>
+        <div style="display: flex;justify-content: end;">
+          <button class="btn btn-primary" style="padding: 1rem 2rem;display: flex;align-items: center;">등록</button>
+        </div>
+      </form>
+
+    </div>
+
 
   </div>
-</nav>
-
-<div class="container">
 
 
-<div class="container0">
-    <div class="btn-group">
-    <label for="sel" class="form-label">개 선택:</label>
-    <select class="form-select" id="sel" name="sellist" onchange="changeSelect()">
-      <option>동진이</option>
-      <option>현재</option>
-      <option>묵훈이</option>
-      <option>미현이</option>
-    </select>
-    <br>
-    </div>
-
-
-
-<div class = "box">
-
-    <div class="btn-group1">
-	  <div class="checkbox1">
-      <label><input type="checkbox" value="" >품종
-       <form action="/action_page.php">
-    <label for="sel2" class="form-label"></label>
-    <select class="form-select" id="sel2" name="sellist2" onchange = "changeSelect2()">
-      <option>골든 리트리버</option>
-      <option>치와와</option>
-    </select>
-    <br>
-  </form>
-      </label>
-    </div>
-   </div>
-
-	
-    <div class="checkbox2">
-      <label><input type="checkbox" value="">나이</label>
-    <input type="text" class="form-control" placeholder="Normal input" readonly value = "52개월">
-    </div>    
-    <div class="checkbox3">
-      <label><input type="checkbox" value="">체중</label>
-          <input type="text" class="form-control" placeholder="Normal input" readonly value = "13kg">
-    </div>
-    <div class="checkbox4">
-      <label><input id = "cheak-btn" type="checkbox" value="">운동량</label>
-		<input type="text" class="form-control" placeholder="Normal input" readonly value = "5시간/주">
-    </div>
-</div>
-
-		<div class ="button2">
-    <div class="btn-group">
-       <form action="/action_page.php">
-    <label for="sel3" class="form-label">나타낼 정보</label>
-    <select class="form-select" id="sel3" name="sellist3" onchange="changeSelect3()">
-      <option>사료</option>
-      <option>샴푸</option>
-      <option>목줄</option>
-      <option>장난감</option>
-    </select>
-    <br>
-  </form>
-    </div>
-      </div>
-
-<div class = "btn-search">
-  <button type="button" class="btn btn-primary btn-block" style="background-color:#92d050 !important;" onclick="getResult()">조회</button>
-</div>
-</div>
-
-
-
-
-<div id = "ctn1Viewer">
-<div class="container1">
-  <table class="table table-bordered">
-    <thead>
-      <tr>
-        <th>순위</th>
-        <th>상품명</th>
-        <th>점유율</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td>1</td>
-        <td>웰니스 그린</td>
-        <td>32.6%</td>
-      </tr>
-      <tr>
-        <td>2</td>
-        <td>로열캐닌</td>
-        <td>13.2%</td>
-      </tr>
-      <tr>
-        <td>3</td>
-        <td>게더</td>
-        <td>6.3%</td>
-      </tr>
-    </tbody>
-  </table>
-</div>
-</div>
-
-
-<div id = "ctn1_2Viewer">
-<div class="container1_2">
-  <table class="table table-bordered">
-    <thead>
-      <tr>
-        <th>순위</th>
-        <th>상품명</th>
-        <th>점유율</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td>1</td>
-        <td>엄</td>
-        <td>52.6%</td>
-      </tr>
-      <tr>
-        <td>2</td>
-        <td>준</td>
-        <td>13.2%</td>
-      </tr>
-      <tr>
-        <td>3</td>
-        <td>식</td>
-        <td>6.3%</td>
-      </tr>
-    </tbody>
-  </table>
-</div>
-</div>
-
-
-<div id = "ctn1_3Viewer">
-<div class="container1_2">
-  <table class="table table-bordered">
-    <thead>
-      <tr>
-        <th>순위</th>
-        <th>상품명</th>
-        <th>점유율</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td>1</td>
-        <td>윤</td>
-        <td>52.6%</td>
-      </tr>
-      <tr>
-        <td>2</td>
-        <td>석</td>
-        <td>13.2%</td>
-      </tr>
-      <tr>
-        <td>3</td>
-        <td>열</td>
-        <td>6.3%</td>
-      </tr>
-    </tbody>
-  </table>
-</div>
-</div>
-
-
-<div id = "ctn1_4Viewer">
-<div class="container1_2">
-  <table class="table table-bordered">
-    <thead>
-      <tr>
-        <th>순위</th>
-        <th>상품명</th>
-        <th>점유율</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td>1</td>
-        <td>이</td>
-        <td>52.6%</td>
-      </tr>
-      <tr>
-        <td>2</td>
-        <td>재</td>
-        <td>13.2%</td>
-      </tr>
-      <tr>
-        <td>3</td>
-        <td>명</td>
-        <td>6.3%</td>
-      </tr>
-    </tbody>
-  </table>
-</div>
-</div>
-
-
-
-</div>
-
-<script type="text/javascript">
-function changeSelect3() {
-	var supplySelect = document.getElementById("sel3");
-
-	var selectedSupply = supply.options[supplySelect.selectesIndex].text;
-	//용품 선택시 뭐 선택했는지
-}
-
-function changeSelect() {
-	var supplySelect = document.getElementById("sel");
-	var selectedSupply = supply.options[supplySelect.selectesIndex].text;
-	//개 선택 시 뭐 선택했는지
-}
-
-function changeSelect1() {
-	var supplySelect = document.getElementById("sel2");
-	var selectedSupply = supply.options[supplySelect.selectesIndex].text;
-	//품종 선택 시 뭐 선택했는지
-}
-
-function getResult() {
-	
-	if($("#sel3 option:selected").text() == '사료'){
-		document.getElementById("ctn1_4Viewer").style.display = "none";
-		document.getElementById("ctn1_3Viewer").style.display = "none";
-		document.getElementById("ctn1_2Viewer").style.display = "none";
-		document.getElementById("ctn1Viewer").style.display = "block";
-	}
-	
-	
-	if($("#sel3 option:selected").text() == '샴푸'){
-		document.getElementById("ctn1_4Viewer").style.display = "none";
-		document.getElementById("ctn1_3Viewer").style.display = "none";
-		document.getElementById("ctn1Viewer").style.display = "none";
-		document.getElementById("ctn1_2Viewer").style.display = "block";
-	}
-	
-	
-	if($("#sel3 option:selected").text() == '목줄'){
-		document.getElementById("ctn1_4Viewer").style.display = "none";
-		document.getElementById("ctn1Viewer").style.display = "none";
-		document.getElementById("ctn1_2Viewer").style.display = "none";
-		document.getElementById("ctn1_3Viewer").style.display = "block";
-	}
-	
-	if($("#sel3 option:selected").text() == '장난감'){
-		document.getElementById("ctn1_3Viewer").style.display = "none";
-		document.getElementById("ctn1Viewer").style.display = "none";
-		document.getElementById("ctn1_2Viewer").style.display = "none";
-		document.getElementById("ctn1_4Viewer").style.display = "block";
-	}
-	
-	
-}
-
-
-const checkboxElement1 = document.querySelector('.checkbox1 input[type="checkbox"]');
-
-checkboxElement1.addEventListener('change', function() {
-  if (this.checked) {
-    console.log("true1");
-    // 체크되었을 때 원하는 작업 수행
-  } else {
-    console.log("false1");
-    // 체크 해제되었을 때 원하는 작업 수행
-  }
-});
-
-
-const checkboxElement2 = document.querySelector('.checkbox2 input[type="checkbox"]');
-
-checkboxElement2.addEventListener('change', function() {
-  if (this.checked) {
-    console.log("true2");
-    // 체크되었을 때 원하는 작업 수행
-  } else {
-    console.log("false2");
-    // 체크 해제되었을 때 원하는 작업 수행
-  }
-});
-		
-
-const checkboxElement3 = document.querySelector('.checkbox3 input[type="checkbox"]');
-
-checkboxElement3.addEventListener('change', function() {
-  if (this.checked) {
-    console.log("true3");
-    // 체크되었을 때 원하는 작업 수행
-  } else {
-    console.log("false3");
-    // 체크 해제되었을 때 원하는 작업 수행
-  }
-});  
-	
-
-const checkboxElement4 = document.querySelector('.checkbox4 input[type="checkbox"]');
-
-checkboxElement4.addEventListener('change', function() {
-  if (this.checked) {
-    console.log("true3");
-    // 체크되었을 때 원하는 작업 수행
-  } else {
-    console.log("false3");
-    // 체크 해제되었을 때 원하는 작업 수행
-  }
-});
-
-</script>
+  <script>
+  </script>
 </body>
+
 </html>
