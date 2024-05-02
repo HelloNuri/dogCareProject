@@ -76,7 +76,6 @@ public class ActionFactroy {
 		case "dogList":
 			action = new DogList();
 			break;
-			
 		case "registerDogUI":
 			action = new RegisterDogUI();
 			break;
@@ -88,6 +87,12 @@ public class ActionFactroy {
 			break;
 		case "dogHealthReport":
 			action = new DogHealthReport();
+			break;
+		case "weightChart":
+			action = new WeightChart();
+			break;
+		case "exerciseChart":
+			action = new ExerciseChart();
 			break;
 		case "albumListUI":
 			action = new AlbumListUI();

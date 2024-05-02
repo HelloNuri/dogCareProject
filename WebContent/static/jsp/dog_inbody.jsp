@@ -1,15 +1,18 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>Bootstrap Example</title>
+  <title>Dog Care: 강아지 건강정보 입력</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" href="static/img/dogCare.png.ico">
 
   <script src="static/js/bootstrap.bundle.min.js"></script>
   <link rel="stylesheet" href="static/css/main.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-  
   <script src="static/js/dog_inbody.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
  <style> 
  	body {
  		background-image: url("static/img/logo.svg");
@@ -61,9 +64,10 @@
 
 
 	<div id="contain">
+
 		<div id="select-container">
+			<input type="hidden" id="selectedDog">
 			<div class="dropdown">
-				<input type="hidden" id="dogId"/>
 				<button id="dogSelectBtn" type="button"
 					class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown"
 					data-updated="true">강아지 선택</button>
@@ -92,12 +96,12 @@
 
 
 
-		<div class="weigth">
+		<div id="weight">
 			체중그래프
 			<div class="container pt-5"></div>
 		</div>
 
-		<div class="exercise">
+		<div id="exercise">
 			운동량그래프
 			<div class="container pt-5"></div>
 		</div>

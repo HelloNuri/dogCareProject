@@ -16,9 +16,7 @@
   <link rel="stylesheet" href="static/css/main.css">
   <link rel="stylesheet" href="static/css/dog_info.css">
 
-  <script src="static/js/dog_info.js">
-
-  </script>
+  <script src="static/js/dog_info.js"></script>
 
   <!-- 항목 삭제버튼의 이미지를 .class로 만들면 리소스를 아낄 수 있지 않을까? -->
 </head>
@@ -142,7 +140,7 @@
 	dogSelectBtn.addEventListener("click", dogListUpdate);
     dogInfoForm.addEventListener("submit", submitDogInfo);
     for (let i = 0; i < dogs.length - 2; i++) {
-      dogs[i].addEventListener("click", (e) => updateSelectedDog(e));
+      dogs[i].addEventListener("click", updateSelectedDog);
     }
 
     supplyAddBtn.addEventListener("click", insertSupply);

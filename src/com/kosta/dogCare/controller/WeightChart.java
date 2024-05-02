@@ -1,16 +1,17 @@
-package com.kosta.dogCare.controller.action;
+package com.kosta.dogCare.controller;
 
 import java.io.IOException;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 
-public class DogHealthReportUI implements Action {
+import com.kosta.dogCare.controller.action.Action;
+
+public class WeightChart implements Action {
 
 	@Override
 	public String execute(HttpServletRequest request) throws ServletException, IOException {
-		String url = "static/jsp/dog_inbody.jsp";
-		return url;
+		return "static/json/weightChartData.jsp";
 	}
 
 }
