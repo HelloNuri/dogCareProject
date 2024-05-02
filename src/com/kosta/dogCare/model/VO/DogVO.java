@@ -11,7 +11,16 @@ public class DogVO {
     private char neutrification;
     private String userId;
     
-	public DogVO(int dogId, String name, String breed, Date birthDate, char gender, char neutrification, String userId) {
+    public DogVO(String name, String breed, Date birthDate, char gender, char neutrification, String userId) {
+		super();
+		this.name = name;
+		this.breed = breed;
+		this.birthDate = birthDate;
+		this.gender = gender;
+		this.neutrification = neutrification;
+		this.userId = userId;
+	}
+    public DogVO(int dogId, String name, String breed, Date birthDate, char gender, char neutrification, String userId) {
 		super();
 		this.dogId = dogId;
 		this.name = name;

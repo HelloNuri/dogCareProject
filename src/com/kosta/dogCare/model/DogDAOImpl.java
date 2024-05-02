@@ -29,7 +29,8 @@ public class DogDAOImpl implements DogDAO{
 	
 	@Override
 	public int addDog(DogVO dog) {
-		String sql = "insert into dogs (dog_id, name, breed, birth_date, gender, neutrification, user_id) values (?, ?, ?, ?, ?, ?, ?)";
+		String sql = "insert into dogs (dog_id, name, breed, birth_date, gender, neutrification, user_id) "
+				             + "values (   ?  ,  ?  ,   ?  ,      ?    ,    ?  ,        ?      ,    ?   )";
 		int dogId = -1;
 		try(Connection conn = dataSource.getConnection();
 				PreparedStatement pstmt = conn.prepareStatement(sql);

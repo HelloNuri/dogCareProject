@@ -77,7 +77,7 @@ public class ActionFactroy {
 			action = new RegisterDogUI();
 			break;
 		case "registerDog":
-			action = new RegisterDogUI();
+			action = new RegisterDog();
 			break;
 		case "dogHealthReportUI":
 			action = new DogHealthReportUI();

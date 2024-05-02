@@ -33,7 +33,7 @@
 
   <div id="body" class="container">
     <div id="main-container">
-      <form action="registerDog">
+      <form action="controller?cmd=registerDog" method="post">
         <div id="dogInfo-container" class="logoImage">
           <div class="grid-row">
             <div class="label">강아지 정보</div>
@@ -61,11 +61,11 @@
             <div class="items">
               <div class="item">
                 <div>*체중: </div>
-                <input type="number" class="form-control" placeholder="11.3 (kg)" name="dog-weight" required>
+                <input type="number" id="weight" class="form-control" placeholder="11.3 (kg)" step ="0.1" name="dog-weight" required>
               </div>
               <div class="item">
                 <div>*운동량:</div>
-                <input type="number" class="form-control" placeholder="7 (시간/주)" name="dog-exercise" required>
+                <input type="number" id="exerciseTime" class="form-control" placeholder="7 (시간/주)" step ="0.2" name="dog-exercise" required>
               </div>
               <div class="item">
                 <div>비고: </div>

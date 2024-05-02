@@ -22,14 +22,14 @@ public class AddDogInfo implements Action {
  		double weight = Double.parseDouble(request.getParameter("dogWeight"));
  		double exerciseTime = Double.parseDouble(request.getParameter("dogExerciseTime"));
  		String note = request.getParameter("dogNote");
- 		String [] supplyCategory = request.getParameterValues("supplyCategory");
+ 		String [] supplyCategories = request.getParameterValues("supplyCategory");
  		String [] supplyName = request.getParameterValues("supplyName");
  		Timestamp uploadTime = Timestamp.valueOf(request.getParameter("datetime-local") + " 00:00:00");
  		
  		DogInfoVO dogInfo = new DogInfoVO(weight, exerciseTime, note, uploadTime, dogId);
  		Collection<SupplyVO> supplies = new ArrayList<>();
- 		for(int i = 0; i < supplyCategory.length; i++){
- 			supplies.add(new SupplyVO(supplyCategory[i], supplyName[i]));
+ 		for(int i = 0; supplyCategories != null && i < supplyCategories.length; i++){
+ 			supplies.add(new SupplyVO(supplyCategories[i], supplyName[i]));
  		}
  		
  		if(new DogInformationServiceImpl().addDogHealthReport(dogInfo, supplies))

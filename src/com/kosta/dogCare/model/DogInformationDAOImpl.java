@@ -27,7 +27,6 @@ public class DogInformationDAOImpl implements DogInformationDAO{
 			Context context = new InitialContext();
 			dataSource =
 					(DataSource) context.lookup("java:comp/env/jdbc/myoracle");
-			System.out.println(dataSource);
 		} catch (NamingException e) {
 			e.printStackTrace();
 		}
