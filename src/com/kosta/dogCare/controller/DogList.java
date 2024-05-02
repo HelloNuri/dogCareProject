@@ -1,4 +1,4 @@
-package com.kosta.dogCare.controller.action;
+package com.kosta.dogCare.controller;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -9,19 +9,19 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import com.kosta.dogCare.Service.DogRegistrationServiceImpl;
+import com.kosta.dogCare.controller.action.Action;
 import com.kosta.dogCare.model.VO.DogVO;
 
-public class AddDogInfoUI implements Action {
+public class DogList implements Action {
 
 	@Override
 	public String execute(HttpServletRequest request) throws ServletException, IOException {
-		String url = "static/jsp/dog_info.jsp";
 		HttpSession session = request.getSession();
-		String userId = (String)session.getAttribute("loginId");
-		
+		String userId = (String) session.getAttribute("loginId");
 		Collection<DogVO> dogs = new DogRegistrationServiceImpl().getDogsByUserId(userId);
 		request.setAttribute("dogs", dogs);
-		return url;
+		System.out.println(dogs);
+		return "static/json/dogList.jsp";
 	}
 
 }

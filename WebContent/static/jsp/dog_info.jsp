@@ -10,6 +10,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="icon" href="static/img/dogCare.png.ico">
   <script src="static/js/bootstrap.bundle.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  
 
   <link rel="stylesheet" href="static/css/main.css">
   <link rel="stylesheet" href="static/css/dog_info.css">
@@ -41,9 +43,9 @@
       <form action="controller?cmd=addDogInfo" method="post">
         <div id="select-container">
           <div class="dropdown">
-            <button type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown">강아지 선택
+            <button type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown" data-updated="true">강아지 선택
             </button>
-            <ul class="dropdown-menu">
+            <ul class="dropdown-menu" id="dogList">
             <c:forEach var="dog" items="${dogs}">
             	<li><a class="dropdown-item" dog-id="${dog.getDogId()}" dog-breed="${dog.getBreed()}" dog-birth-date="${dog.getBirthDate()}" dog-gender="${dog.getGender()}">${dog.getName()}</a></li>
             </c:forEach>
@@ -137,7 +139,7 @@
     document.querySelector("#infoDate").value = new Date().toISOString().slice(0, 10);
 
 
-
+	dogSelectBtn.addEventListener("click", dogListUpdate);
     dogInfoForm.addEventListener("submit", submitDogInfo);
     for (let i = 0; i < dogs.length - 2; i++) {
       dogs[i].addEventListener("click", (e) => updateSelectedDog(e));

@@ -105,3 +105,42 @@ function updateSelectedDog(e){
    	
    		
 }
+
+async function dogListUpdate(e){
+//	if(e.target.dataset.updated)
+//		return;
+	const url = "controller?cmd=dogList";
+	const res = await fetch(url);
+	const in_data = await res.text();
+	console.log(in_data);
+//	let listElements = "";
+//	for(const dog of in_data.dogs){
+//		listElements += getListTemplate(dog);
+//	}
+//	listElements += "<li><a class=\"dropdown-item\" href=\"controller?cmd=registerDogUI\" style=\"display: flex; justify-content: center; color: green;\"><svg xmlns=\"http://www.w3.org/2000/svg\" width=\"32\" height=\"32\" fill=\"currentColor\" class=\"bi bi-plus-circle-fill\" viewBox=\"0 0 16 16\"><path d=\"M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0M8.5 4.5a.5.5 0 0 0-1 0v3h-3a.5.5 0 0 0 0 1h3v3a.5.5 0 0 0 1 0v-3h3a.5.5 0 0 0 0-1h-3z\"></path></svg></a></li>";
+//	const dogList = document.querySelector("#dogList");
+//	dogList.innerHtml = in_data;
+	const dogList = $("#dogList");
+	dogList.html(in_data);
+}
+
+function getListTemplate(dog){
+	const li = document.createElement('li');
+	  const anchor = document.createElement('a');
+
+	  // Set anchor attributes
+	  anchor.classList.add('dropdown-item');
+	  anchor.setAttribute('dog-id', dog.dogId);
+	  anchor.setAttribute('dog-breed', dog.breed);
+	  anchor.setAttribute('dog-birth-date', dog.birthDate);
+	  anchor.setAttribute('dog-gender', dog.gender);
+
+	  // Set anchor text content
+	  anchor.textContent = dog.name;
+
+	  // Append anchor to li
+	  li.appendChild(anchor);
+
+	  // Return the complete li element
+	  return li;
+}

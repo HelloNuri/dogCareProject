@@ -73,6 +73,10 @@ public class ActionFactroy {
 		case "addDogInfo":
 			action = new AddDogInfo();
 			break;
+		case "dogList":
+			action = new DogList();
+			break;
+			
 		case "registerDogUI":
 			action = new RegisterDogUI();
 			break;
