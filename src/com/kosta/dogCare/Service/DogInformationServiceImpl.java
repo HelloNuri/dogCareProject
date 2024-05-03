@@ -1,6 +1,5 @@
 package com.kosta.dogCare.Service;
 
-import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashMap;
@@ -33,20 +32,27 @@ public class DogInformationServiceImpl implements DogInformationService{
 		return result;
 	}
 
-	public Map<Integer, Double> getHealthDataByDogId(int dogId) {
-		return dogInfoDao.getHealthDataByDogId(dogId);
-	}
-	
-	public Map<Integer, Double> getHealthDataByBreed(String breed) {
-		return dogInfoDao.getHealthDataByBreed(breed);
-	}
-
 	@Override
 	public Map<Integer, Collection<Double>> getHealthGraphByDogId(int dogId) {
 		Map<Integer, Collection<Double>> result = new HashMap<>();
 		
 		Map<Integer, Double> myDogWeights = dogInfoDao.getHealthDataByDogId(dogId);
 		Map<Integer, Double> otherDogWeights = dogInfoDao.getHealthDataByBreed(dogDao.getBreedByDogId(dogId));
+		for (int key : otherDogWeights.keySet()) {
+			Collection<Double> weights = new ArrayList<>();
+			weights.add(myDogWeights.get(key));
+			weights.add(otherDogWeights.get(key));
+			result.put(key, weights);
+		}
+		return result;
+	}
+
+	@Override
+	public Map<Integer, Collection<Double>> getExerciseGraphByDogId(int dogId) {
+		Map<Integer, Collection<Double>> result = new HashMap<>();
+		
+		Map<Integer, Double> myDogWeights = dogInfoDao.getExerciseDataByDogId(dogId);
+		Map<Integer, Double> otherDogWeights = dogInfoDao.getExerciseDataByBreed(dogDao.getBreedByDogId(dogId));
 		for (int key : otherDogWeights.keySet()) {
 			Collection<Double> weights = new ArrayList<>();
 			weights.add(myDogWeights.get(key));

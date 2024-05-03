@@ -23,9 +23,7 @@ public class FrontControllerServlet extends HttpServlet {
 		
 		ActionFactroy factory = new ActionFactroy();
 		String cmd = request.getParameter("cmd");
-		System.out.println(cmd);
 		Action action = factory.getAction(cmd);
-		System.out.println(action);
 		String url = action.execute(request);
 		request.getRequestDispatcher(url).forward(request, response);
 	}

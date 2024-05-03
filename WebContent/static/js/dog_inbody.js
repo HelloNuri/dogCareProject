@@ -37,7 +37,36 @@ async function updateInbody(dogId){
 	const weightBox = document.querySelector("#weight div");
 	const exerciseBox = document.querySelector("#exercise div");
 	console.log(exerciseData);
-	weightBox.innerText = weightData;
-	exerciseBox.innerText = exerciseData;
+	weightBox.innerText = weightData.trim();
+	exerciseBox.innerText = exerciseData.trim();
 	
+	let xAxisData = ['철수','영희','민수','지수']; // x축 데이터 배열 생성
+	let seriesData = [70,80,100,30]; // 값 데이터 배열 생성
+	updateChart();
+}
+
+function updateChart(){
+
+    function drawChart () { 
+
+	var myChart = echarts.init(document.getElementById('chart')); // echarts init 메소드로 id=chart인 DIV에 차트 초기화
+	
+	option = { // 차트를 그리는데 활용 할 다양한 옵션 정의
+                xAxis: {
+                    type: 'category',
+                    data: xAxisData // 위에서 정의한 X축 데이터
+                },
+                yAxis: {
+                    type: 'value'
+                },
+                series: [
+                    {
+                    data: seriesData, // 위에서 정의한 값 데이터
+                    type: this.value // 버튼의 value 데이터 ('line' or 'bar')
+                    }
+                ]
+                    };
+    
+	myChart.setOption(option); // 차트 디스플레이
+}
 }

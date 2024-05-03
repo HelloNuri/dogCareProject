@@ -7,8 +7,7 @@
     <%
     int dogId = Integer.parseInt(request.getParameter("dogId"));
 	DogInformationService infoService = new DogInformationServiceImpl();
-	Map<Integer, Collection<Double>> weightData = infoService.getHealthGraphByDogId(dogId);
-	request.setAttribute("weightData", weightData);
+	Map<Integer, Collection<Double>> exerciseChart = infoService.getExerciseGraphByDogId(dogId);
 		%>
 만나서 반갑다. 나는 운동량 그래프라고 한다.
-<%= weightData.toString() %>
+<%= exerciseChart.toString() %>

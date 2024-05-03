@@ -147,14 +147,13 @@ public class DogInformationDAOImpl implements DogInformationDAO{
 
 	@Override
 	public Map<Integer, Double> getHealthDataByDogId(int dogId) {
-		String sql = "select trunc((sysdate-TRUNC(di.upload_time, 'MM'))/30) \"생후개월\",round(avg(weight),2) \"평균체중\" "
+		String sql = "select TRUNC((TRUNC(di.upload_time,'MM')- TRUNC(d.BIRTH_DATE,'MM'))/30) \"생후개월\",round(avg(weight),2) \"평균체중\" "
 				+ "from dog_informations di "
 				+ "inner join dogs d "
 				+ "on d.dog_id = di.dog_id "
 				+ "where d.dog_id = ? "
-				+ "and trunc((sysdate-TRUNC(upload_time, 'MM'))/30) <= trunc((sysdate-d.birth_date) / 30) "
-				+ "group by trunc((sysdate-TRUNC(di.upload_time, 'MM'))/30) "
-				+ "order by trunc((sysdate-TRUNC(di.upload_time, 'MM'))/30) ";
+				+ "group by TRUNC((TRUNC(di.upload_time,'MM')- TRUNC(d.BIRTH_DATE,'MM'))/30) "
+				+ "order by \"생후개월\" ";
 		Map<Integer, Double> result = new HashMap<Integer, Double>();
 		
 		try(Connection conn = dataSource.getConnection();
@@ -174,14 +173,65 @@ public class DogInformationDAOImpl implements DogInformationDAO{
 	
 	@Override
 	public Map<Integer, Double> getHealthDataByBreed(String breed) {
-		String sql = "select trunc((sysdate-TRUNC(di.upload_time, 'MM'))/30) \"생후개월\",round(avg(weight),2) \"평균체중\" "
+		String sql = "select TRUNC((TRUNC(di.upload_time,'MM')- TRUNC(d.BIRTH_DATE,'MM'))/30) \"생후개월\",round(avg(weight),2) \"평균체중\" "
 				+ "from dog_informations di "
 				+ "inner join dogs d "
 				+ "on d.dog_id = di.dog_id "
 				+ "where d.breed = ? "
-				+ "and trunc((sysdate-TRUNC(upload_time, 'MM'))/30) <= trunc((sysdate-d.birth_date) / 30) "
-				+ "group by trunc((sysdate-TRUNC(di.upload_time, 'MM'))/30) "
-				+ "order by trunc((sysdate-TRUNC(di.upload_time, 'MM'))/30) ";
+				+ "group by TRUNC((TRUNC(di.upload_time,'MM')- TRUNC(d.BIRTH_DATE,'MM'))/30) "
+				+ "order by \"생후개월\" ";
+		Map<Integer, Double> result = new HashMap<Integer, Double>();
+		
+		try(Connection conn = dataSource.getConnection();
+				PreparedStatement pstmt = conn.prepareStatement(sql);){
+			//데이터 유효성 검사는 UI에서 한다고 가정한다.
+			pstmt.setString(1, breed);
+			try(ResultSet rs = pstmt.executeQuery();){
+				while (rs.next()) {
+					result.put(rs.getInt(1), rs.getDouble(2));
+				}
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return result;
+	}
+	
+	@Override
+	public Map<Integer, Double> getExerciseDataByDogId(int dogId) {
+		String sql = "select TRUNC((TRUNC(di.upload_time,'MM')- TRUNC(d.BIRTH_DATE,'MM'))/30) \"생후개월\",round(avg(exercise_time),2) \"평균운동량\" "
+				+ "from dog_informations di "
+				+ "inner join dogs d "
+				+ "on d.dog_id = di.dog_id "
+				+ "where d.dog_id = ? "
+				+ "group by TRUNC((TRUNC(di.upload_time,'MM')- TRUNC(d.BIRTH_DATE,'MM'))/30) "
+				+ "order by \"생후개월\" ";
+		Map<Integer, Double> result = new HashMap<Integer, Double>();
+		
+		try(Connection conn = dataSource.getConnection();
+				PreparedStatement pstmt = conn.prepareStatement(sql);){
+			//데이터 유효성 검사는 UI에서 한다고 가정한다.
+			pstmt.setInt(1, dogId);
+			try(ResultSet rs = pstmt.executeQuery();){
+				while (rs.next()) {
+					result.put(rs.getInt(1), rs.getDouble(2));
+				}
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return result;
+	}
+	
+	@Override
+	public Map<Integer, Double> getExerciseDataByBreed(String breed) {
+		String sql = "select TRUNC((TRUNC(di.upload_time,'MM')- TRUNC(d.BIRTH_DATE,'MM'))/30) \"생후개월\",round(avg(exercise_time),2) \"평균운동량\" "
+				+ "from dog_informations di "
+				+ "inner join dogs d "
+				+ "on d.dog_id = di.dog_id "
+				+ "where d.breed = ? "
+				+ "group by TRUNC((TRUNC(di.upload_time,'MM')- TRUNC(d.BIRTH_DATE,'MM'))/30) "
+				+ "order by \"생후개월\" ";
 		Map<Integer, Double> result = new HashMap<Integer, Double>();
 		
 		try(Connection conn = dataSource.getConnection();

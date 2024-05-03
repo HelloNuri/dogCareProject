@@ -13,6 +13,7 @@
   <link rel="stylesheet" href="static/css/main.css">
   <script src="static/js/dog_inbody.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/echarts@5.5.0/dist/echarts.min.js"></script>
  <style> 
  	body {
  		background-image: url("static/img/logo.svg");
@@ -24,6 +25,7 @@
 	#contain {
 		display:grid;
 		grid-template-rows:0.3fr 1fr 0.8fr 1fr;
+		padding: 1rem;
 	}
 
 
@@ -107,6 +109,11 @@
 		</div>
 
 	</div>
+	    <button id="drawLine" value="line">Line Chart</button>
+    <button id="drawBar" value="bar">Bar Chart</button>
+
+    <!-- 차트를 그려줄 영역 -->
+    <div id="chart" style="width: 100%; height:500px;"> 
 	<script type="text/javascript">
 	const dogSelectBtn = document.querySelector("#dogSelectBtn");
 	dogSelectBtn.addEventListener("click", dogListUpdate);

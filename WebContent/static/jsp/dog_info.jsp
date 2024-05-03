@@ -139,7 +139,7 @@
 
 	dogSelectBtn.addEventListener("click", dogListUpdate);
     dogInfoForm.addEventListener("submit", submitDogInfo);
-    for (let i = 0; i < dogs.length - 2; i++) {
+    for (i = 0; i < dogs.length - 2; i++) {
       dogs[i].addEventListener("click", updateSelectedDog);
     }
 

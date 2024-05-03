@@ -11,11 +11,13 @@ public interface DogInformationDAO {
 	//DogInfo CRUD
     public int addDogInfo(DogInfoVO dogInfo);
     public Collection<DogInfoVO> getDogInfos(int dogId);
+    Map<Integer, Double> getHealthDataByDogId(int dogId);
+    Map<Integer, Double> getHealthDataByBreed(String breed);
+    Map<Integer, Double> getExerciseDataByDogId(int dogId);
+    Map<Integer, Double> getExerciseDataByBreed(String breedByDogId);
 
     //Supplies CRUD
-    public boolean addDogSupplies(int infoId, Collection<SupplyVO> supplies);
-    public Collection<SupplyVO> getSupplies(int infoId);
-	Map<Integer, Double> getHealthDataByDogId(int dogId);
-	Map<Integer, Double> getHealthDataByBreed(String breed);
-	public Collection<Map<String, Double>> getSupplyStatistic(String breed, int startAge, int endAge, String category);
+	Collection<SupplyVO> getSupplies(int infoId);
+	Collection<Map<String, Double>> getSupplyStatistic(String breed, int startAge, int endAge, String category);
+	boolean addDogSupplies(int infoId, Collection<SupplyVO> supplies);
 }
