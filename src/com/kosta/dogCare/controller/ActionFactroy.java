@@ -7,9 +7,7 @@ import com.kosta.dogCare.controller.action.AddDogInfo;
 import com.kosta.dogCare.controller.action.AddDogInfoUI;
 import com.kosta.dogCare.controller.action.AlbumList;
 import com.kosta.dogCare.controller.action.AlbumListUI;
-import com.kosta.dogCare.controller.action.CheckIdExistence;
 import com.kosta.dogCare.controller.action.CheckValidationNum;
-import com.kosta.dogCare.controller.action.DogHealthReport;
 import com.kosta.dogCare.controller.action.DogHealthReportUI;
 import com.kosta.dogCare.controller.action.FindAccountUI;
 import com.kosta.dogCare.controller.action.FindId;
@@ -31,12 +29,14 @@ public class ActionFactroy {
 	public Action getAction(String cmd){
 		Action action = null;
 		switch (cmd) {
+		/*login*/
 		case "loginUI":
 			action = new LoginUI();
 			break;
 		case "login":
 			action = new Login();
 			break;
+		/*register*/
 		case "registerUI":
 			action = new RegisterUI();
 			break;
@@ -49,9 +49,10 @@ public class ActionFactroy {
 		case "checkValidationNum":
 			action = new CheckValidationNum();
 			break;
-		case "checkIdExistence":
-			action = new CheckIdExistence();
+		case "isExistId":
+			action = new IsExistId();
 			break;
+		/*ID/PW찾기*/
 		case "findAccountUI":
 			action = new FindAccountUI();
 			break;
@@ -61,32 +62,27 @@ public class ActionFactroy {
 		case "findPw":
 			action = new FindPw();
 			break;
+		/*메인메뉴*/
 		case "mainUI":
 			action = new MainUI();
 			break;
-		case "logout":
-			action = new Logout();
-			break;
+		/*강아지 건강정보 등록*/
 		case "addDogInfoUI":
 			action = new AddDogInfoUI();
 			break;
 		case "addDogInfo":
 			action = new AddDogInfo();
 			break;
-		case "dogList":
-			action = new DogList();
-			break;
+		/*강아지 회원가입*/
 		case "registerDogUI":
 			action = new RegisterDogUI();
 			break;
 		case "registerDog":
 			action = new RegisterDog();
 			break;
+		/*강아지 인바디*/
 		case "dogHealthReportUI":
 			action = new DogHealthReportUI();
-			break;
-		case "dogHealthReport":
-			action = new DogHealthReport();
 			break;
 		case "weightChart":
 			action = new WeightChart();
@@ -94,28 +90,34 @@ public class ActionFactroy {
 		case "exerciseChart":
 			action = new ExerciseChart();
 			break;
+		/*나의 강아지 앨범목록*/
 		case "albumListUI":
 			action = new AlbumListUI();
 			break;
 		case "albumList":
 			action = new AlbumList();
 			break;
+		/*앨범 상세보기*/
 		case "watchAlbumUI":
 			action = new WatchAlbumUI();
 			break;
 		case "watchAlbum":
 			action = new WatchAlbum();
 			break;
+		/*강아지 관련용품 통계*/
 		case "supplyStatisticUI":
 			action = new SupplyStatisticUI();
 			break;
 		case "supplyStatistic":
 			action = new SupplyStatistic();
 			break;
-		case "isExistId":
-			action = new IsExistId();
+		/*공통 기능*/
+		case "logout":
+			action = new Logout();
 			break;
-		
+		case "dogList":
+			action = new DogList();
+			break;
 		}
 		return action;
 	}

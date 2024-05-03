@@ -113,4 +113,11 @@ async function dogListUpdate(e){
 	const res = await fetch(url);
 	const in_data = await res.text();
 	const dogList = $("#dogList");
+	
+	dogList.html(in_data);
+	const dogLi = document.querySelectorAll("#dogList li");
+	for(i = 0; i < dogLi.length - 2; i++){
+		dogLi[i].addEventListener("click", updateSelectedDog)
+	}
+	
 }
