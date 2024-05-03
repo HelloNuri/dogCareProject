@@ -1,4 +1,4 @@
-package com.kosta.dogCare.controller;
+package com.kosta.dogCare.controller.action;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -9,7 +9,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import com.kosta.dogCare.Service.DogRegistrationServiceImpl;
-import com.kosta.dogCare.controller.action.Action;
 import com.kosta.dogCare.model.VO.DogVO;
 
 public class DogList implements Action {
@@ -20,7 +19,6 @@ public class DogList implements Action {
 		String userId = (String) session.getAttribute("loginId");
 		Collection<DogVO> dogs = new DogRegistrationServiceImpl().getDogsByUserId(userId);
 		request.setAttribute("dogs", dogs);
-		System.out.println(dogs);
 		return "static/json/dogList.jsp";
 	}
 

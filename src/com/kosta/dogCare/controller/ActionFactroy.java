@@ -9,6 +9,9 @@ import com.kosta.dogCare.controller.action.AlbumList;
 import com.kosta.dogCare.controller.action.AlbumListUI;
 import com.kosta.dogCare.controller.action.CheckValidationNum;
 import com.kosta.dogCare.controller.action.DogHealthReportUI;
+import com.kosta.dogCare.controller.action.DogList;
+import com.kosta.dogCare.controller.action.DogRecentWeight;
+import com.kosta.dogCare.controller.action.ExerciseChart;
 import com.kosta.dogCare.controller.action.FindAccountUI;
 import com.kosta.dogCare.controller.action.FindId;
 import com.kosta.dogCare.controller.action.FindPw;
@@ -16,13 +19,16 @@ import com.kosta.dogCare.controller.action.IsExistId;
 import com.kosta.dogCare.controller.action.Logout;
 import com.kosta.dogCare.controller.action.MainUI;
 import com.kosta.dogCare.controller.action.Register;
+import com.kosta.dogCare.controller.action.RegisterDog;
 import com.kosta.dogCare.controller.action.RegisterDogUI;
 import com.kosta.dogCare.controller.action.RegisterUI;
 import com.kosta.dogCare.controller.action.SendValidationNum;
+import com.kosta.dogCare.controller.action.SupplyRankPage;
 import com.kosta.dogCare.controller.action.SupplyStatistic;
 import com.kosta.dogCare.controller.action.SupplyStatisticUI;
 import com.kosta.dogCare.controller.action.WatchAlbum;
 import com.kosta.dogCare.controller.action.WatchAlbumUI;
+import com.kosta.dogCare.controller.action.WeightChart;
 
 public class ActionFactroy {
 	
@@ -111,6 +117,13 @@ public class ActionFactroy {
 		case "supplyStatistic":
 			action = new SupplyStatistic();
 			break;
+		case "dogRecentWeight":
+			action = new DogRecentWeight();
+			break;
+		case "supplyRankPage":
+			action = new SupplyRankPage();
+			break;
+		
 		/*공통 기능*/
 		case "logout":
 			action = new Logout();

@@ -1,17 +1,16 @@
-package com.kosta.dogCare.controller;
+package com.kosta.dogCare.controller.action;
 
 import java.io.IOException;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 
-import com.kosta.dogCare.controller.action.Action;
-
-public class WeightChart implements Action {
+public class DogRecentWeight implements Action {
 
 	@Override
 	public String execute(HttpServletRequest request) throws ServletException, IOException {
-		return "static/json/weightChartData.jsp";
+		// TODO Auto-generated method stub
+		return "static/json/dogRecentWeight.jsp";
 	}
 
 }

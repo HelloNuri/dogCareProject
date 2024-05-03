@@ -13,8 +13,10 @@ public interface DogInformationService {
 	
     public Map<Integer, Collection<Double>> getHealthGraphByDogId(int dogId);
     
-	public Collection<Map<String, Double>> getSupplyStatistic(String breed, int startAge, int endAge, String category);
+	public Collection<Map<String, String>> getSupplyStatistic(String breed, int startAge, int endAge, String category);
 
 	Map<Integer, Collection<Double>> getExerciseGraphByDogId(int dogId);
+
+	double getDogRecentWeight(int dogId);
 	
 }

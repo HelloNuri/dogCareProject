@@ -250,29 +250,10 @@ public class DogInformationDAOImpl implements DogInformationDAO{
 	}
 
 	@Override
-	public Collection<Map<String, Double>> getSupplyStatistic(String breed, int startAge, int endAge, String category){
-		String sql = "select name, trunc(count(name)/(select count(name) total from \r\n"
-				+ "(\r\n"
-				+ "  select s.name, trunc((to_Date('2025-01-01', 'YYYY-MM-DD')-trunc(d.BIRTH_DATE, 'MM'))/30) \"age\"\r\n"
-				+ "  from dogs d, dog_informations i, supplies s \r\n"
-				+ "  where d.dog_id = i.dog_id \r\n"
-				+ "    and i.information_id = s.information_id \r\n"
-				+ "    and d.breed = ? \r\n"
-				+ "    and s.category = ?\r\n"
-				+ "    and trunc((to_Date('2025-01-01', 'YYYY-MM-DD')-trunc(d.BIRTH_DATE, 'MM'))/30) Between ? and ?\r\n"
-				+ ")),3)*100 \"수\" from \r\n"
-				+ "(\r\n"
-				+ "  select s.name, trunc((to_Date('2025-01-01', 'YYYY-MM-DD')-trunc(d.BIRTH_DATE, 'MM'))/30) \"age\"\r\n"
-				+ "  from dogs d, dog_informations i, supplies s \r\n"
-				+ "  where d.dog_id = i.dog_id \r\n"
-				+ "    and i.information_id = s.information_id \r\n"
-				+ "    and d.breed = ? \r\n"
-				+ "    and s.category = ?\r\n"
-				+ "    and trunc((to_Date('2025-01-01', 'YYYY-MM-DD')-trunc(d.BIRTH_DATE, 'MM'))/30) Between ? and ?\r\n"
-				+ ")\r\n"
-				+ "group by name\r\n"
-				+ "order by \"수\" desc";
-		Collection<Map<String, Double>> rankPage = new ArrayList<>();
+	public Collection<Map<String, String>> getSupplyStatistic(String breed, int startAge, int endAge, String category){
+		//String sql = "select name, trunc(count(name)/(select count(name) total from (select s.name, trunc((trunc(i.upload_time,'MM')-trunc(d.birth_date,'MM'))/30) age from dogs d, dog_informations i, supplies s where d.dog_id = i.dog_id and i.information_id = s.information_id and d.breed = ? and s.category = ?  and trunc((trunc(i.upload_time,'MM')-trunc(d.birth_date,'MM'))/30) Between ? and ?)),3)*100 count from (select s.name, trunc((trunc(i.upload_time,'MM')-trunc(d.birth_date,'MM'))/30) age from dogs d, dog_informations i, supplies s where d.dog_id = i.dog_id and i.information_id = s.information_id and d.breed = ? and s.category = ? and trunc((trunc(i.upload_time,'MM')-trunc(d.birth_date,'MM'))/30) Between ? and ?) group by name order by count desc";
+		String sql = "select name, trunc(count(name)/(select count(name) total from (select s.name, trunc((trunc(i.upload_time,'MM')-trunc(d.birth_date,'MM'))/30) age from dogs d, dog_informations i, supplies s where d.dog_id = i.dog_id and i.information_id = s.information_id and d.breed = ? and s.category = ? and trunc((trunc(i.upload_time,'MM')-trunc(d.birth_date,'MM'))/30) Between ? and ?)),3)*100 pct from (select s.name, trunc((trunc(i.upload_time,'MM')-trunc(d.birth_date,'MM'))/30) age from dogs d, dog_informations i, supplies s where d.dog_id = i.dog_id and i.information_id = s.information_id and d.breed = ? and s.category = ? and trunc((trunc(i.upload_time,'MM')-trunc(d.birth_date,'MM'))/30) Between ? and ?) group by name order by pct desc";
+		Collection<Map<String, String>> rankPage = new ArrayList<>();
 		try(Connection conn = dataSource.getConnection();
 				PreparedStatement pstmt = conn.prepareStatement(sql);){
 			pstmt.setString(1, breed);
@@ -283,10 +264,14 @@ public class DogInformationDAOImpl implements DogInformationDAO{
 			pstmt.setString(6, category);
 			pstmt.setInt(7, startAge);
 			pstmt.setInt(8, endAge);
+			
 			try(ResultSet rs = pstmt.executeQuery();){
 				while(rs.next()) {
-//			rankPage.add(Map.of(rs.getString(1), rs.getDouble(2)));
-					break;//Todo
+					Map<String, String> temp = new HashMap<String, String>();
+					temp.put(  "name" , rs.getString(1));
+					temp.put("percent", rs.getString(2));
+					System.out.println(temp);
+					rankPage.add(temp);
 				}
 				
 			}

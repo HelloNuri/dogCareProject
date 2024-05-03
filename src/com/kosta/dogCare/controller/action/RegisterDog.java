@@ -1,4 +1,4 @@
-package com.kosta.dogCare.controller;
+package com.kosta.dogCare.controller.action;
 
 import java.io.IOException;
 import java.sql.Date;
@@ -14,7 +14,6 @@ import javax.servlet.http.HttpSession;
 
 import com.kosta.dogCare.Service.DogInformationServiceImpl;
 import com.kosta.dogCare.Service.DogRegistrationServiceImpl;
-import com.kosta.dogCare.controller.action.Action;
 import com.kosta.dogCare.model.VO.DogInfoVO;
 import com.kosta.dogCare.model.VO.DogVO;
 import com.kosta.dogCare.model.VO.SupplyVO;

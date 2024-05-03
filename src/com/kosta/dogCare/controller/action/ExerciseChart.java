@@ -1,4 +1,4 @@
-package com.kosta.dogCare.controller;
+package com.kosta.dogCare.controller.action;
 
 import java.io.IOException;
 import java.util.Collection;
@@ -9,7 +9,6 @@ import javax.servlet.http.HttpServletRequest;
 
 import com.kosta.dogCare.Service.DogInformationService;
 import com.kosta.dogCare.Service.DogInformationServiceImpl;
-import com.kosta.dogCare.controller.action.Action;
 
 public class ExerciseChart implements Action {
 

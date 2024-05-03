@@ -63,8 +63,13 @@ public class DogInformationServiceImpl implements DogInformationService{
 	}
 
 	@Override
-	public Collection<Map<String, Double>> getSupplyStatistic(String breed, int startAge, int endAge, String category){
+	public Collection<Map<String, String>> getSupplyStatistic(String breed, int startAge, int endAge, String category){
 		return dogInfoDao.getSupplyStatistic(breed, startAge, endAge, category);
+	}
+	@Override
+	public double getDogRecentWeight(int dogId){
+		// todo
+		return 12.2;
 	}
 
 

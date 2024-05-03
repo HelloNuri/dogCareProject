@@ -18,6 +18,6 @@ public interface DogInformationDAO {
 
     //Supplies CRUD
 	Collection<SupplyVO> getSupplies(int infoId);
-	Collection<Map<String, Double>> getSupplyStatistic(String breed, int startAge, int endAge, String category);
+	Collection<Map<String, String>> getSupplyStatistic(String breed, int startAge, int endAge, String category);
 	boolean addDogSupplies(int infoId, Collection<SupplyVO> supplies);
 }
