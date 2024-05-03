@@ -98,22 +98,12 @@
 
 
 
-		<div id="weight">
-			체중그래프
-			<div class="container pt-5"></div>
-		</div>
+			<div id="weight" style="width: 100%; height:500px;"> </div>
 
-		<div id="exercise">
-			운동량그래프
-			<div class="container pt-5"></div>
-		</div>
+			<div id="exercise" style="width: 100%; height:500px;"> </div>
 
 	</div>
-	    <button id="drawLine" value="line">Line Chart</button>
-    <button id="drawBar" value="bar">Bar Chart</button>
 
-    <!-- 차트를 그려줄 영역 -->
-    <div id="chart" style="width: 100%; height:500px;"> 
 	<script type="text/javascript">
 	const dogSelectBtn = document.querySelector("#dogSelectBtn");
 	dogSelectBtn.addEventListener("click", dogListUpdate);
